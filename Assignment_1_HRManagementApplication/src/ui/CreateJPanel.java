@@ -4,6 +4,10 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+import model.EmpDetail;
+import model.EmpDetailsList;
+
 /**
  *
  * @author amretasrerengarajan
@@ -13,8 +17,14 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    public CreateJPanel() {
+    
+    EmpDetailsList empList;
+    
+    public CreateJPanel(EmpDetailsList empList) {
         initComponents();
+        
+        // creating reference for the employee array list
+        this.empList = empList;
     }
 
     /**
@@ -105,6 +115,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblEmailId.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         btnSaveDetail.setText("Save");
+        btnSaveDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveDetailActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -140,12 +155,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(txtPosTitle)
                             .addComponent(txtMobileNum)
                             .addComponent(txtEmailId))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(399, 399, 399)
+                .addGap(450, 450, 450)
                 .addComponent(btnSaveDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,6 +220,52 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGap(47, 47, 47))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDetailActionPerformed
+        // TODO add your handling code here:
+        
+        // getting all the parameters from the text box and storing it in a variable
+        String name = txtName.getText(); 
+        int empId = Integer.parseInt(txtEmpId.getText());
+        int age = Integer.parseInt(txtAge.getText());
+        String gender = txtGender.getText();
+        String startDate = txtStartDate.getText();
+        String level = txtLevel.getText();
+        String teamInfo = txtTeamInfo.getText();
+        String posTitle = txtPosTitle.getText();
+        long mobileNum = Long.parseLong(txtMobileNum.getText());
+        String emailId = txtEmailId.getText();
+        
+        // initialising the empDetails
+        EmpDetail empDet = empList.addEmpDetails();
+        
+        // using the empDet object to set the emp detail values
+        empDet.setName(name);
+        empDet.setEmpId(empId);
+        empDet.setAge(age);
+        empDet.setGender(gender);
+        empDet.setStartDate(startDate);
+        empDet.setLevel(level);
+        empDet.setTeamInfo(teamInfo);
+        empDet.setPositionTitle(posTitle);
+        empDet.setMobileNum(mobileNum);
+        empDet.setEmailId(emailId);
+        
+        // creating a message dialog with option pane to tell the user that the details is saved
+        JOptionPane.showMessageDialog(this, "Employee Detail is Successfully Added!");
+        
+        // clearing the form fields after saving the details
+        txtName.setText("");
+        txtEmpId.setText("");
+        txtAge.setText("");
+        txtGender.setText("");
+        txtStartDate.setText("");
+        txtLevel.setText("");
+        txtTeamInfo.setText("");
+        txtPosTitle.setText("");
+        txtMobileNum.setText("");
+        txtEmailId.setText("");
+    }//GEN-LAST:event_btnSaveDetailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -21,7 +21,8 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         
-        this.empList = empList;
+        // calling the constructor of employee list for initialising the array list
+        this.empList = new EmpDetailsList();
     }
 
     /**
@@ -65,7 +66,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(125, 125, 125)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(67, 67, 67))
         );
@@ -129,7 +130,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        CreateJPanel createPanel = new CreateJPanel();
+        //Creating the createJPanel during the save button action
+        CreateJPanel createPanel = new CreateJPanel(empList);
+        
+        // adding the createJPannel to the bottom pane of the split pane
         splitPane.setBottomComponent(createPanel);
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -12,22 +12,28 @@ import java.util.ArrayList;
  */
 public class EmpDetailsList {
     
-    private ArrayList<EmpDetail> EmpList;
+    private ArrayList<EmpDetail> empList;
+    
+    public EmpDetailsList() {
+        
+        // java creates new emp detail with the EmpDetail class. Initialing the memory. Constructor for EmpDetailsList
+        this.empList = new ArrayList<EmpDetail>(); 
+    }
 
     public ArrayList<EmpDetail> getEmpList() {
-        return EmpList;
+        return empList;
     }
 
     public void setEmpList(ArrayList<EmpDetail> EmpList) {
-        this.EmpList = EmpList;
+        this.empList = EmpList;
     }
     
     public EmpDetail addEmpDetails() {
+        
         // function to add new employee details to the array list
         EmpDetail newEmpDetail = new EmpDetail();
-        EmpList.add(newEmpDetail);
+        empList.add(newEmpDetail);
         return newEmpDetail;
-  
     }
     
 }

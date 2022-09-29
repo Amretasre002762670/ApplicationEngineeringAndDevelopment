@@ -13,7 +13,7 @@ public class EmpDetail {
     private String name;
     private int empId;
     private int age;
-    private char gender;
+    private String gender;
     private String startDate;
     private String level;
     private String teamInfo;
@@ -46,11 +46,11 @@ public class EmpDetail {
         this.age = age;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
