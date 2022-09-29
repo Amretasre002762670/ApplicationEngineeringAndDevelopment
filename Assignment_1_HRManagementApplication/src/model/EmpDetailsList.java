@@ -36,4 +36,10 @@ public class EmpDetailsList {
         return newEmpDetail;
     }
     
+    public void removeEmpDetails(EmpDetail emp) {
+        
+        //method to remove an employee from the list
+        empList.remove(emp);
+    }
+    
 }
