@@ -36,9 +36,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         controlPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnAddEmployee = new javax.swing.JButton();
+        btnUpdateEmployee = new javax.swing.JButton();
+        btnViewEmployee = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
         lblAppTitle = new javax.swing.JLabel();
 
@@ -46,24 +46,24 @@ public class MainFrame extends javax.swing.JFrame {
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        jButton1.setText("Add Employee Detail");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddEmployee.setText("Add Employee Detail");
+        btnAddEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddEmployeeActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Update Employee Details");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateEmployee.setText("Update Employee Details");
+        btnUpdateEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnUpdateEmployeeActionPerformed(evt);
             }
         });
 
-        jButton3.setText("List Employee Details");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnViewEmployee.setText("List Employee Details");
+        btnViewEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnViewEmployeeActionPerformed(evt);
             }
         });
 
@@ -73,24 +73,24 @@ public class MainFrame extends javax.swing.JFrame {
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jButton1)
+                .addComponent(btnAddEmployee)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnUpdateEmployee)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnViewEmployee)
                 .addGap(67, 67, 67))
         );
 
-        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEmployee, btnUpdateEmployee, btnViewEmployee});
 
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnAddEmployee)
+                    .addComponent(btnUpdateEmployee)
+                    .addComponent(btnViewEmployee))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -137,7 +137,7 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmployeeActionPerformed
         // TODO add your handling code here:
         
         //Creating the createJPanel during the save button action
@@ -145,9 +145,9 @@ public class MainFrame extends javax.swing.JFrame {
         
         // adding the create panel to the bottom of split pane
         splitPane.setBottomComponent(createPanel);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddEmployeeActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnViewEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEmployeeActionPerformed
         // TODO add your handling code here:
         
         //Creating the viewJPanel during the save button action
@@ -155,9 +155,9 @@ public class MainFrame extends javax.swing.JFrame {
         
         // adding the view panel to the bottom of split pane
         splitPane.setBottomComponent(viewPanel);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnViewEmployeeActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnUpdateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEmployeeActionPerformed
         // TODO add your handling code here:
         
         //Creating the updateJPanel during the save button action
@@ -165,7 +165,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         // adding the update panel to the bottom of split pane
         splitPane.setBottomComponent(updatePanel);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnUpdateEmployeeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,10 +203,10 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddEmployee;
+    private javax.swing.JButton btnUpdateEmployee;
+    private javax.swing.JButton btnViewEmployee;
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel lblAppTitle;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;

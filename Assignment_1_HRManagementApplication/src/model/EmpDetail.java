@@ -102,6 +102,9 @@ public class EmpDetail {
         this.emailId = emailId;
     }
     
-    
+    @Override    
+    public String toString() { 
+        return name; 
+    }
     
 }
