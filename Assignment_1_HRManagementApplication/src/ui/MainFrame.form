@@ -27,7 +27,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblAppTitle" max="32767" attributes="0"/>
-                  <Component id="splitPane" max="32767" attributes="0"/>
+                  <Component id="splitPane" pref="1188" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -64,13 +64,11 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="btnAddEmployee" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="125" max="32767" attributes="0"/>
-                      <Component id="btnUpdateEmployee" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="125" max="32767" attributes="0"/>
+                      <EmptySpace pref="774" max="32767" attributes="0"/>
                       <Component id="btnViewEmployee" linkSize="1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -80,7 +78,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnAddEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnUpdateEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnViewEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="71" max="32767" attributes="0"/>
@@ -95,14 +92,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddEmployeeActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnUpdateEmployee">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Update Employee Details"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateEmployeeActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnViewEmployee">
@@ -125,7 +114,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="884" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1188" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

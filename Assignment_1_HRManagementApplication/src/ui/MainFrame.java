@@ -37,7 +37,6 @@ public class MainFrame extends javax.swing.JFrame {
         splitPane = new javax.swing.JSplitPane();
         controlPanel = new javax.swing.JPanel();
         btnAddEmployee = new javax.swing.JButton();
-        btnUpdateEmployee = new javax.swing.JButton();
         btnViewEmployee = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
         lblAppTitle = new javax.swing.JLabel();
@@ -53,13 +52,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnUpdateEmployee.setText("Update Employee Details");
-        btnUpdateEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateEmployeeActionPerformed(evt);
-            }
-        });
-
         btnViewEmployee.setText("List Employee Details");
         btnViewEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,16 +64,14 @@ public class MainFrame extends javax.swing.JFrame {
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(50, 50, 50)
                 .addComponent(btnAddEmployee)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(btnUpdateEmployee)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 774, Short.MAX_VALUE)
                 .addComponent(btnViewEmployee)
-                .addGap(67, 67, 67))
+                .addGap(50, 50, 50))
         );
 
-        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEmployee, btnUpdateEmployee, btnViewEmployee});
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEmployee, btnViewEmployee});
 
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +79,6 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddEmployee)
-                    .addComponent(btnUpdateEmployee)
                     .addComponent(btnViewEmployee))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
@@ -100,7 +89,7 @@ public class MainFrame extends javax.swing.JFrame {
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 884, Short.MAX_VALUE)
+            .addGap(0, 1188, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +110,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAppTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(splitPane))
+                    .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -156,16 +145,6 @@ public class MainFrame extends javax.swing.JFrame {
         // adding the view panel to the bottom of split pane
         splitPane.setBottomComponent(viewPanel);
     }//GEN-LAST:event_btnViewEmployeeActionPerformed
-
-    private void btnUpdateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEmployeeActionPerformed
-        // TODO add your handling code here:
-        
-        //Creating the updateJPanel during the save button action
-        UpdateJPanel updatePanel = new UpdateJPanel(empList);
-        
-        // adding the update panel to the bottom of split pane
-        splitPane.setBottomComponent(updatePanel);
-    }//GEN-LAST:event_btnUpdateEmployeeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,7 +183,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEmployee;
-    private javax.swing.JButton btnUpdateEmployee;
     private javax.swing.JButton btnViewEmployee;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JLabel lblAppTitle;
