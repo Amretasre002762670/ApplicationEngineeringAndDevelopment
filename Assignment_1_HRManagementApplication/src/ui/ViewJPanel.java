@@ -5,6 +5,7 @@
 package ui;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import model.EmpDetail;
 import model.EmpDetailsList;
@@ -20,6 +21,7 @@ public class ViewJPanel extends javax.swing.JPanel {
      */
     
     EmpDetailsList empList;
+    boolean backButton;
     
     public ViewJPanel(EmpDetailsList empList) {
         initComponents();
@@ -152,8 +154,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addComponent(lblTitle)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 119, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
@@ -177,9 +179,16 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         //getting the employee details that is to be deleted
         EmpDetail selectedEmp = (EmpDetail) empTable.getValueAt(empInd, 1);
-        System.out.println(selectedEmp.getAge());
         
-        UpdatePanel updatePanel = new UpdatePanel(selectedEmp, empList );
+        UpdatePanel updatePanel = new UpdatePanel(selectedEmp, empList, empInd);
+//        boolean isBackButtonPressed = backButton;
+//        if(isBackButtonPressed) {
+//            jScrollPane3.setViewport(JTable tblEmpDetails);
+//        } else {
+//            jScrollPane3.setViewportView(updatePanel);
+//        }
+        btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
         jScrollPane3.setViewportView(updatePanel);
         
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -240,7 +249,6 @@ public class ViewJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblTitle;

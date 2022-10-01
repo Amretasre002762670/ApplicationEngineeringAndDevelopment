@@ -36,10 +36,94 @@ public class EmpDetailsList {
         return newEmpDetail;
     }
     
-    public void removeEmpDetails(EmpDetail emp) {
+    public ArrayList<EmpDetail> addEmpToList(EmpDetail empDet) {
+        empList.add(empDet);
+        for (EmpDetail emp: empList) {
+            System.out.println(emp);
+        }
+        return empList;
+    }
+    
+    public void removeEmpDetails(EmpDetail empDet) {
+        
+        empList.remove(empDet);
         
         //method to remove an employee from the list
-        empList.remove(emp);
+//        for (EmpDetail emp: empList) {
+//            if(emp.getEmpId() == empDet.getEmpId()) {
+//                empList.remove(emp);
+//            }
+//        }
     }
+    
+    public EmpDetail updateEmpDetails(EmpDetail emp, int selectedEmpInd) {
+        if(empList.contains(emp)) {
+            empList.set(selectedEmpInd, emp);
+        }
+        return emp;
+    }
+    
+    public Object searchEmpDetailsWithInt (String searchType, long searchValue) {
+        EmpDetail searchResult = new EmpDetail();
+            for (EmpDetail emp: empList) {
+                if(emp.getEmpId() == searchValue) {
+                    searchResult = emp;
+                }
+            }
+        return searchResult;
+    }
+    
+    public EmpDetail searchEmpDetailsWithString (String searchType, String searchValue) {
+        EmpDetail searchResult = new EmpDetail();
+        switch (searchType) {
+            case "Gender" -> {
+                for (EmpDetail emp: empList) {
+                    if(emp.getGender().equals(searchValue)) {
+                        searchResult = emp;
+//                        empList.add(emp);
+                    }
+                }
+            }
+            case "Name" -> {
+                for (EmpDetail emp: empList) {
+                    if(emp.getName().equals(searchValue)) {
+                        searchResult = emp;
+                    }
+                }
+            }
+            case "Level" -> {
+                for (EmpDetail emp: empList) {
+                    if(emp.getLevel().equals(searchValue)) {
+                        searchResult = emp;
+                    }
+                }
+            }
+            case "Position" -> {
+                for (EmpDetail emp: empList) {
+                    if(emp.getPositionTitle().equals(searchValue)) {
+                        searchResult = emp;
+                    }
+                }
+            }
+            case "Team" -> {
+                for (EmpDetail emp: empList) {
+                    if(emp.getTeamInfo().equals(searchValue)) {
+                        searchResult = emp;
+                    }
+                }
+            }
+            default -> {
+            }
+        }
+        return searchResult;
+    }
+    
+//    public int getTotalNoEmp(EmpDetailsList list) {
+//        int count = 0;
+//        for(EmpDetails emp: list) {
+//            count++;
+//        }
+//        return count;
+//    }
     
 }

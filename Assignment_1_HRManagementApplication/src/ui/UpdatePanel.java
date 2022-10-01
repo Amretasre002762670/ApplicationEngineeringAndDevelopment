@@ -19,12 +19,17 @@ public class UpdatePanel extends javax.swing.JPanel {
      */
     EmpDetail empDetail;
     EmpDetailsList empList;
+    int selectedEmpInd;
+//    boolean isBackButton = false;
     
-    public UpdatePanel(EmpDetail empDetail, EmpDetailsList empList) {
+    public UpdatePanel(EmpDetail empDetail, EmpDetailsList empList, int selectedEmpInd) {
         initComponents();
         
         this.empDetail = empDetail;
         this.empList = empList;
+        this.selectedEmpInd = selectedEmpInd;
+//        this.isBackButton = backButton;
+        
         
         addFormValues();
     }
@@ -59,8 +64,7 @@ public class UpdatePanel extends javax.swing.JPanel {
         txtPosTitle = new javax.swing.JTextField();
         txtMobNum = new javax.swing.JTextField();
         txtEmailId = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -98,17 +102,10 @@ public class UpdatePanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -131,7 +128,7 @@ public class UpdatePanel extends javax.swing.JPanel {
                     .addComponent(lblTeamInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                     .addComponent(txtEmpId, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtAge, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtGender, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -145,12 +142,10 @@ public class UpdatePanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(jButton1)
-                .addGap(45, 45, 45)
-                .addComponent(btnBack)
-                .addContainerGap(196, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(350, 350, 350)
+                .addComponent(btnSave)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,14 +193,12 @@ public class UpdatePanel extends javax.swing.JPanel {
                     .addComponent(lblEmailId)
                     .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(btnBack))
+                .addComponent(btnSave)
                 .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         
         String name = txtName.getText(); 
@@ -220,19 +213,20 @@ public class UpdatePanel extends javax.swing.JPanel {
         String emailId = txtEmailId.getText();
         
         // initialising the empDetails
-        EmpDetail empDetail = empList.addEmpDetails();
+        EmpDetail selectedEmpDetails;
+        selectedEmpDetails = empList.updateEmpDetails(empDetail, selectedEmpInd );
         
         // using the empDet object to set the emp detail values
-        empDetail.setName(name);
-        empDetail.setEmpId(empId);
-        empDetail.setAge(age);
-        empDetail.setGender(gender);
-        empDetail.setStartDate(startDate);
-        empDetail.setLevel(level);
-        empDetail.setTeamInfo(teamInfo);
-        empDetail.setPositionTitle(posTitle);
-        empDetail.setMobileNum(mobileNum);
-        empDetail.setEmailId(emailId);
+        selectedEmpDetails.setName(name);
+        selectedEmpDetails.setEmpId(empId);
+        selectedEmpDetails.setAge(age);
+        selectedEmpDetails.setGender(gender);
+        selectedEmpDetails.setStartDate(startDate);
+        selectedEmpDetails.setLevel(level);
+        selectedEmpDetails.setTeamInfo(teamInfo);
+        selectedEmpDetails.setPositionTitle(posTitle);
+        selectedEmpDetails.setMobileNum(mobileNum);
+        selectedEmpDetails.setEmailId(emailId);
         
         JOptionPane.showMessageDialog(this, "Details Successfully Saved!");
         // clearing the form fields after saving the details
@@ -246,7 +240,7 @@ public class UpdatePanel extends javax.swing.JPanel {
         txtPosTitle.setText("");
         txtMobNum.setText("");
         txtEmailId.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
@@ -256,14 +250,9 @@ public class UpdatePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailIdActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblEmailId;
@@ -288,6 +277,7 @@ public class UpdatePanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void addFormValues() {
+        
         txtName.setText(String.valueOf(empDetail.getName()));
         txtEmpId.setText(String.valueOf(empDetail.getEmpId()));
         txtAge.setText(String.valueOf(empDetail.getAge()));

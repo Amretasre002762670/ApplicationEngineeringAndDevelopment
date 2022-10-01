@@ -20,6 +20,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     
     EmpDetailsList empList;
     
+    
     public CreateJPanel(EmpDetailsList empList) {
         initComponents();
         
@@ -234,9 +235,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         String posTitle = txtPosTitle.getText();
         long mobileNum = Long.parseLong(txtMobileNum.getText());
         String emailId = txtEmailId.getText();
-        
+
         // initialising the empDetails
         EmpDetail empDet = empList.addEmpDetails();
+        
         
         // using the empDet object to set the emp detail values
         empDet.setName(name);
@@ -265,8 +267,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtMobileNum.setText("");
         txtEmailId.setText("");
     }//GEN-LAST:event_btnSaveDetailActionPerformed
-
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaveDetail;
     private javax.swing.JLabel lblAge;
