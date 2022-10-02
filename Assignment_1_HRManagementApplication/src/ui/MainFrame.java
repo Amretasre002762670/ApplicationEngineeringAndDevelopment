@@ -23,6 +23,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         // calling the constructor of employee list for initialising the array list
         this.empList = new EmpDetailsList();
+        splitPane.setBottomComponent(lblText);
         lblText.setVisible(true);
     }
 
@@ -69,7 +70,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        lblText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblText.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         lblText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblText.setText("Choose one of the options to Start!");
 
@@ -80,7 +81,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(btnAddEmployee)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1048, Short.MAX_VALUE)
                 .addComponent(btnViewEmployee)
                 .addGap(350, 350, 350)
                 .addComponent(btnSearch)
@@ -103,7 +104,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(btnSearch))
                 .addGap(30, 30, 30)
                 .addComponent(lblText)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         splitPane.setTopComponent(controlPanel);
@@ -112,7 +113,7 @@ public class MainFrame extends javax.swing.JFrame {
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1212, Short.MAX_VALUE)
+            .addGap(0, 1988, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +144,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(lblAppTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(1306, Short.MAX_VALUE))
         );
 
         pack();

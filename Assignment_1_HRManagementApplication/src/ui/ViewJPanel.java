@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +33,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         //to update the table when the class in initialised
         addTableRows();
+        lblEmpImage.setVisible(false);
     }
 
     /**
@@ -49,6 +52,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         tblEmpDetails = new javax.swing.JTable();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        lblViewImage = new javax.swing.JLabel();
+        lblEmpImage = new javax.swing.JLabel();
+        btnViewImage = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         tblEmpDetails1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,24 +136,47 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblEmpImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmpImage.setText("Selected Employee Image");
+
+        btnViewImage.setText("View Profile Photo");
+        btnViewImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewImageActionPerformed(evt);
+            }
+        });
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
-                .addGap(350, 350, 350))
             .addGroup(layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(btnUpdate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDelete)
-                .addGap(150, 150, 150))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblViewImage, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(lblEmpImage, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(617, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(350, 350, 350))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane3)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,11 +185,23 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addComponent(lblTitle)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete))
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblEmpImage)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblViewImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnUpdate)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnViewImage)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnDelete)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -180,6 +222,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         //getting the employee details that is to be deleted
         EmpDetail selectedEmp = (EmpDetail) empTable.getValueAt(empInd, 1);
         
+       
         UpdatePanel updatePanel = new UpdatePanel(selectedEmp, empList, empInd);
 //        boolean isBackButtonPressed = backButton;
 //        if(isBackButtonPressed) {
@@ -189,6 +232,8 @@ public class ViewJPanel extends javax.swing.JPanel {
 //        }
         btnUpdate.setVisible(false);
         btnDelete.setVisible(false);
+        btnViewImage.setVisible(false);
+        
         jScrollPane3.setViewportView(updatePanel);
         
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -221,6 +266,30 @@ public class ViewJPanel extends javax.swing.JPanel {
         addTableRows();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnViewImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewImageActionPerformed
+        // TODO add your handling code here:
+        int empInd = tblEmpDetails.getSelectedRow();
+        
+        //checking if the user has chosen any row that is to be updated
+        if(empInd < 0 ) {
+            //if there is no row selected then a dialog is displayed
+            JOptionPane.showMessageDialog(this, "Select the Employee to be Updated.");
+            return;
+        }
+        
+        lblEmpImage.setVisible(true);
+        
+        DefaultTableModel empTable = (DefaultTableModel) tblEmpDetails.getModel();
+
+        
+        //getting the employee details that is to be deleted
+        EmpDetail selectedEmp = (EmpDetail) empTable.getValueAt(empInd, 1);
+        ImageIcon imageDispaly = new ImageIcon(selectedEmp.getImage());
+        Image image = imageDispaly.getImage().getScaledInstance(lblViewImage.getWidth(), lblViewImage.getHeight(), Image.SCALE_SMOOTH);
+        lblViewImage.setIcon(new ImageIcon(image));
+
+    }//GEN-LAST:event_btnViewImageActionPerformed
+
     private void addTableRows() {
         
         //creating the table model using DefaultTableModel
@@ -249,9 +318,13 @@ public class ViewJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnViewImage;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblEmpImage;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblViewImage;
     private javax.swing.JTable tblEmpDetails;
     private javax.swing.JTable tblEmpDetails1;
     // End of variables declaration//GEN-END:variables

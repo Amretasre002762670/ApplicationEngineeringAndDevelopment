@@ -73,49 +73,52 @@ public class EmpDetailsList {
         return searchResult;
     }
     
-    public EmpDetail searchEmpDetailsWithString (String searchType, String searchValue) {
-        EmpDetail searchResult = new EmpDetail();
-        switch (searchType) {
-            case "Gender" -> {
-                for (EmpDetail emp: empList) {
-                    if(emp.getGender().equals(searchValue)) {
-                        searchResult = emp;
-//                        empList.add(emp);
-                    }
+    public ArrayList<EmpDetail> searchDetailWithName(String searchValue) {
+        ArrayList<EmpDetail> searchResult = new ArrayList<EmpDetail>();
+        for (EmpDetail emp: empList) {
+                if(emp.getName().equals(searchValue)) {
+                    searchResult.add(emp);
                 }
             }
-            case "Name" -> {
-                for (EmpDetail emp: empList) {
-                    if(emp.getName().equals(searchValue)) {
-                        searchResult = emp;
-                    }
-                }
-            }
-            case "Level" -> {
-                for (EmpDetail emp: empList) {
-                    if(emp.getLevel().equals(searchValue)) {
-                        searchResult = emp;
-                    }
-                }
-            }
-            case "Position" -> {
-                for (EmpDetail emp: empList) {
-                    if(emp.getPositionTitle().equals(searchValue)) {
-                        searchResult = emp;
-                    }
-                }
-            }
-            case "Team" -> {
-                for (EmpDetail emp: empList) {
-                    if(emp.getTeamInfo().equals(searchValue)) {
-                        searchResult = emp;
-                    }
-                }
-            }
-            default -> {
-            }
-        }
+        
         return searchResult;
+    } 
+    
+    public ArrayList<EmpDetail> searchDetailWithLevel(String searchValue) {
+        ArrayList<EmpDetail> searchResult = new ArrayList<EmpDetail>();
+        for (EmpDetail emp: empList) {
+                if(emp.getLevel().equals(searchValue)) {
+                    searchResult.add(emp);
+                }
+            }
+        
+        return searchResult;
+    }
+    
+    public ArrayList<EmpDetail> searchDetailWithPosition(String searchValue) {
+        ArrayList<EmpDetail> searchResult = new ArrayList<EmpDetail>();
+        for (EmpDetail emp: empList) {
+                if(emp.getPositionTitle().equals(searchValue)) {
+                    searchResult.add(emp);
+                }
+            }
+        
+        return searchResult;
+    }
+    
+    public ArrayList<EmpDetail> searchDetailWithTeam(String searchValue) {
+        ArrayList<EmpDetail> searchResult = new ArrayList<EmpDetail>();
+        for (EmpDetail emp: empList) {
+                if(emp.getTeamInfo().equals(searchValue)) {
+                    searchResult.add(emp);
+                }
+            }
+        
+        return searchResult;
+    }
+    
+    public int checkSize() {
+        return empList.size();
     }
     
 //    public int getTotalNoEmp(EmpDetailsList list) {

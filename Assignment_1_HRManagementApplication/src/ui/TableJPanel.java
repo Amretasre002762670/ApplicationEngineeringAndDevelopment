@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import model.EmpDetail;
 import model.EmpDetailsList;
@@ -24,9 +25,14 @@ public class TableJPanel extends javax.swing.JPanel {
     
     public TableJPanel(EmpDetail empDet) {
         initComponents();
-//        this.empDet = empDet;
         //creating the table model using DefaultTableModel
         searchResultTable(empDet);
+    }
+     
+     public TableJPanel(ArrayList<EmpDetail> empDetList) {
+        initComponents();
+        //creating the table model using DefaultTableModel
+        searchResultTableList(empDetList);
     }
     
 //    public TableJPanel(EmpDetailsList empDetList) {
@@ -98,8 +104,8 @@ public class TableJPanel extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addComponent(lblTitle)
                 .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(778, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(700, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -121,25 +127,25 @@ public class TableJPanel extends javax.swing.JPanel {
        
     }
     
-//     private void searchResultTableList(EmpDetailsList empDetList) {
-//        DefaultTableModel empTable = (DefaultTableModel) tblSearchResults.getModel();
-//        empTable.setRowCount(0);
-//
-//        for(EmpDetail empDetail: empList.getEmpList()) {   
-//            //creating the row array and adding the required information in the respective column(index)
-//            Object[] row = new Object[7];
-//            row[0] = empDetail.getEmpId();
-//            row[1] = empDetail.getName();
-//            row[2] = empDetail.getStartDate();
-//            row[3] = empDetail.getLevel();
-//            row[4] = empDetail.getTeamInfo();
-//            row[5] = empDetail.getPositionTitle();
-//            row[6] = empDetail.getEmailId();
-//            
-//            //adding the row array to the table
-//            empTable.addRow(row);
-//        }
-//    }
+     private void searchResultTableList(ArrayList<EmpDetail> empDetList) {
+        DefaultTableModel empTable = (DefaultTableModel) tblSearchResults.getModel();
+        empTable.setRowCount(0);
+
+        for(EmpDetail empDetail: empDetList) {   
+            //creating the row array and adding the required information in the respective column(index)
+            Object[] row = new Object[7];
+            row[0] = empDetail.getEmpId();
+            row[1] = empDetail.getName();
+            row[2] = empDetail.getStartDate();
+            row[3] = empDetail.getLevel();
+            row[4] = empDetail.getTeamInfo();
+            row[5] = empDetail.getPositionTitle();
+            row[6] = empDetail.getEmailId();
+            
+            //adding the row array to the table
+            empTable.addRow(row);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

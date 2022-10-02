@@ -23,7 +23,6 @@ public class SearchPanel extends javax.swing.JPanel {
     String search;
     int searchValue;
     boolean validSearch;
-    EmpDetailsList searchValueList;
     
     public SearchPanel(EmpDetailsList empList) {
         initComponents();
@@ -250,26 +249,32 @@ public class SearchPanel extends javax.swing.JPanel {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         EmpDetail searchResult = null;
-        EmpDetailsList searchResultsList = new EmpDetailsList();
+        ArrayList<EmpDetail> searchResultsList = new ArrayList<EmpDetail>();
+        TableJPanel tablePanel = null;
 //        TableJPanel tablePanel;
         validSearch = searchFieldValidation(txtSearchField.getText());
-        if (validSearch) {
-            if (rdBtnSearchType.getSelection().getActionCommand() == "EmpId") {
-                searchResult = (EmpDetail) empList.searchEmpDetailsWithInt(rdBtnSearchType.getSelection().getActionCommand(), searchValue);
-                TableJPanel tablePanel = new TableJPanel(searchResult);
-                splitPane.setRightComponent(tablePanel);
-
-            } else  {
-//                while (empList.size()) {
-//                    searchResult = (EmpDetail) empList.searchEmpDetailsWithString(rdBtnSearchType.getSelection().getActionCommand(), search);
-//                    searchValueList.addEmpToList(searchResult);
-//                }
-//                TableJPanel tablePanel2 = new TableJPanel(searchResultsList);        
-//                splitPane.setRightComponent(tablePanel2);
-                searchResult = (EmpDetail) empList.searchEmpDetailsWithString(rdBtnSearchType.getSelection().getActionCommand(), search);
+        for (int i = 0; i < empList.checkSize(); i++) {
+            if (validSearch) {
+                if (rdBtnSearchType.getSelection().getActionCommand() == "EmpId") {
+                    searchResult = (EmpDetail) empList.searchEmpDetailsWithInt(rdBtnSearchType.getSelection().getActionCommand(), searchValue);
+                    tablePanel = new TableJPanel(searchResult);
+                } else if (rdBtnSearchType.getSelection().getActionCommand() == "Name") {
+                    searchResultsList = empList.searchDetailWithName(search);
+                    System.out.println(searchResultsList.toString());
+                    tablePanel = new TableJPanel(searchResultsList);
+                } else if (rdBtnSearchType.getSelection().getActionCommand() == "Level") {
+                    searchResultsList = empList.searchDetailWithLevel(search);
+                    tablePanel = new TableJPanel(searchResultsList);
+                }else if (rdBtnSearchType.getSelection().getActionCommand() == "Position") {
+                    searchResultsList = empList.searchDetailWithPosition(search);
+                    tablePanel = new TableJPanel(searchResultsList);
+                }
+                else  {
+                    JOptionPane.showMessageDialog(this, "No Search Results Found");
+                }
             }
         }
-        TableJPanel tablePanel = new TableJPanel(searchResult);
+//        TableJPanel tablePanel = new TableJPanel(searchResult);
         splitPane.setRightComponent(tablePanel);
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -298,18 +303,19 @@ public class SearchPanel extends javax.swing.JPanel {
     
     
     private boolean searchFieldValidation(String searchText) {
-    boolean result = false;
-    if(rdBtnSearchType.getSelection().getActionCommand().equals("EmpId") ) {
-        try {
-            searchValue = Integer.parseInt(searchText);
+        boolean result = false;
+        if(rdBtnSearchType.getSelection().getActionCommand().equals("EmpId") ) {
+            try {
+                searchValue = Integer.parseInt(searchText);
+                result = true;
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Enter a valid value!");
+                txtSearchField.setText("");
+            }
+        } else {
+            search = txtSearchField.getText();
             result = true;
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Enter a valid value!");
-            txtSearchField.setText("");
         }
-    } else {
-        result = true;
-    }
         return result; 
     }
 }

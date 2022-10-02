@@ -4,6 +4,13 @@
  */
 package model;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+
 /**
  *
  * @author amretasrerengarajan
@@ -20,8 +27,26 @@ public class EmpDetail {
     private String positionTitle;
     private long mobileNum;
     private String emailId;
-    // private boolean isPhoto;
+    private String image;
+    
+//    public EmpDetail (String fileName) {
+//        try {
+//            this.image = ImageIO.read(new File(fileName));
+//        } catch (IOException ex) {
+//            System.out.println("Error in addin the file");
+//        }
+//    }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    
+    
     public String getName() {
         return name;
     }
