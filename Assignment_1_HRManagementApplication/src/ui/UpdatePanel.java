@@ -93,10 +93,68 @@ public class UpdatePanel extends javax.swing.JPanel {
                 txtNameActionPerformed(evt);
             }
         });
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNameKeyPressed(evt);
+            }
+        });
+
+        txtEmpId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmpIdKeyPressed(evt);
+            }
+        });
+
+        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAgeKeyPressed(evt);
+            }
+        });
+
+        txtGender.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtGenderKeyPressed(evt);
+            }
+        });
+
+        txtStartDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtStartDateKeyPressed(evt);
+            }
+        });
+
+        txtLevel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLevelKeyPressed(evt);
+            }
+        });
+
+        txtTeamInfo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTeamInfoKeyPressed(evt);
+            }
+        });
+
+        txtPosTitle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPosTitleKeyPressed(evt);
+            }
+        });
+
+        txtMobNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtMobNumKeyPressed(evt);
+            }
+        });
 
         txtEmailId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailIdActionPerformed(evt);
+            }
+        });
+        txtEmailId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailIdKeyPressed(evt);
             }
         });
 
@@ -247,6 +305,106 @@ public class UpdatePanel extends javax.swing.JPanel {
     private void txtEmailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailIdActionPerformed
+
+    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isLetter(typedCharacter) || Character.isWhitespace(typedCharacter) || Character.isISOControl(typedCharacter)) {
+            txtName.setEditable(true);
+        } else {
+            txtName.setEditable(false);
+        }
+    }//GEN-LAST:event_txtNameKeyPressed
+
+    private void txtGenderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGenderKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isLetter(typedCharacter) || Character.isISOControl(typedCharacter)) {
+            txtGender.setEditable(true);
+        } else {
+            txtGender.setEditable(false);
+        }
+    }//GEN-LAST:event_txtGenderKeyPressed
+
+    private void txtStartDateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStartDateKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isLetter(typedCharacter) || Character.isISOControl(typedCharacter) || Character.isDigit(typedCharacter)) {
+            txtStartDate.setEditable(true);
+        } else {
+            txtStartDate.setEditable(false);
+        }
+    }//GEN-LAST:event_txtStartDateKeyPressed
+
+    private void txtLevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLevelKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isLetter(typedCharacter) || Character.isISOControl(typedCharacter)) {
+            txtLevel.setEditable(true);
+        } else {
+            txtLevel.setEditable(false);
+        }
+    }//GEN-LAST:event_txtLevelKeyPressed
+
+    private void txtTeamInfoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeamInfoKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isLetter(typedCharacter) || Character.isISOControl(typedCharacter)) {
+            txtTeamInfo.setEditable(true);
+        } else {
+            txtTeamInfo.setEditable(false);
+        }
+    }//GEN-LAST:event_txtTeamInfoKeyPressed
+
+    private void txtPosTitleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPosTitleKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isLetter(typedCharacter) || Character.isISOControl(typedCharacter)) {
+            txtPosTitle.setEditable(true);
+        } else {
+            txtPosTitle.setEditable(false);
+        }
+    }//GEN-LAST:event_txtPosTitleKeyPressed
+
+    private void txtEmailIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailIdKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isLetter(typedCharacter) || Character.isISOControl(typedCharacter) || Character.isDigit(typedCharacter)) {
+            txtPosTitle.setEditable(true);
+        } else {
+            txtPosTitle.setEditable(false);
+        }
+    }//GEN-LAST:event_txtEmailIdKeyPressed
+
+    private void txtEmpIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmpIdKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isDigit(typedCharacter)) {
+            txtPosTitle.setEditable(true);
+        } else {
+            txtPosTitle.setEditable(false);
+        }
+    }//GEN-LAST:event_txtEmpIdKeyPressed
+
+    private void txtAgeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isDigit(typedCharacter)) {
+            txtPosTitle.setEditable(true);
+        } else {
+            txtPosTitle.setEditable(false);
+        }
+    }//GEN-LAST:event_txtAgeKeyPressed
+
+    private void txtMobNumKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobNumKeyPressed
+        // TODO add your handling code here:
+        char typedCharacter = evt.getKeyChar();
+        if(Character.isDigit(typedCharacter)) {
+            txtPosTitle.setEditable(true);
+        } else {
+            txtPosTitle.setEditable(false);
+        }
+    }//GEN-LAST:event_txtMobNumKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
