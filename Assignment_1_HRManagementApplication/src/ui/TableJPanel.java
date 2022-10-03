@@ -4,10 +4,12 @@
  */
 package ui;
 
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.EmpDetail;
-import model.EmpDetailsList;
 
 //import model.EmpDetailsList;
 
@@ -21,27 +23,23 @@ public class TableJPanel extends javax.swing.JPanel {
      * Creates new form TableJPanel
      */
 //    EmpDetail empDet;
-    EmpDetailsList empList;
+    ArrayList<EmpDetail> empList = new ArrayList<EmpDetail>();
+    EmpDetail empDet;
     
     public TableJPanel(EmpDetail empDet) {
         initComponents();
         //creating the table model using DefaultTableModel
+        this.empDet = empDet;
         searchResultTable(empDet);
     }
      
      public TableJPanel(ArrayList<EmpDetail> empDetList) {
         initComponents();
         //creating the table model using DefaultTableModel
+        this.empList = empDetList;
         searchResultTableList(empDetList);
     }
     
-//    public TableJPanel(EmpDetailsList empDetList) {
-//        initComponents();
-//        this.empDet = empDet;
-//        creating the table model using DefaultTableModel
-//        searchResultTableList(empDetList);
-//    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,6 +122,7 @@ public class TableJPanel extends javax.swing.JPanel {
         row[6] = empDet.getEmailId();
         
         empTable.addRow(row);
+        
        
     }
     

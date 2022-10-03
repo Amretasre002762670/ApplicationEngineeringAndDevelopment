@@ -215,14 +215,8 @@ public class SearchPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdBtnEmpIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdBtnEmpIdActionPerformed
-        // TODO add your handling code here:
-        //        searchFieldValidation(txtSearchField.getText());
-//        SearchBoxPanel searchBoxCmp = new SearchBoxPanel();
-//        splitPane.setRightComponent(searchBoxCmp);
-        
-        rdBtnEmpId.setActionCommand("EmpId");
-//        searchType = rdBtnEmpId.getActionCommand(); 
-        
+  
+        rdBtnEmpId.setActionCommand("EmpId");      
     }//GEN-LAST:event_rdBtnEmpIdActionPerformed
 
     private void rdBtnLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdBtnLevelActionPerformed
@@ -260,7 +254,6 @@ public class SearchPanel extends javax.swing.JPanel {
                     tablePanel = new TableJPanel(searchResult);
                 } else if (rdBtnSearchType.getSelection().getActionCommand() == "Name") {
                     searchResultsList = empList.searchDetailWithName(search);
-                    System.out.println(searchResultsList.toString());
                     tablePanel = new TableJPanel(searchResultsList);
                 } else if (rdBtnSearchType.getSelection().getActionCommand() == "Level") {
                     searchResultsList = empList.searchDetailWithLevel(search);

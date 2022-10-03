@@ -20,7 +20,6 @@ public class UpdatePanel extends javax.swing.JPanel {
     EmpDetail empDetail;
     EmpDetailsList empList;
     int selectedEmpInd;
-//    boolean isBackButton = false;
     
     public UpdatePanel(EmpDetail empDetail, EmpDetailsList empList, int selectedEmpInd) {
         initComponents();
@@ -28,7 +27,6 @@ public class UpdatePanel extends javax.swing.JPanel {
         this.empDetail = empDetail;
         this.empList = empList;
         this.selectedEmpInd = selectedEmpInd;
-//        this.isBackButton = backButton;
         
         
         addFormValues();

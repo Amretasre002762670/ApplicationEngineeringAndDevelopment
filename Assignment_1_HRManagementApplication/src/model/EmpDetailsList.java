@@ -47,13 +47,6 @@ public class EmpDetailsList {
     public void removeEmpDetails(EmpDetail empDet) {
         
         empList.remove(empDet);
-        
-        //method to remove an employee from the list
-//        for (EmpDetail emp: empList) {
-//            if(emp.getEmpId() == empDet.getEmpId()) {
-//                empList.remove(emp);
-//            }
-//        }
     }
     
     public EmpDetail updateEmpDetails(EmpDetail emp, int selectedEmpInd) {
