@@ -8,7 +8,6 @@ import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.EmpDetail;
@@ -504,7 +503,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void txtEmpIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmpIdKeyPressed
         // TODO add your handling code here:
         char typedNumber = evt.getKeyChar();
-        if(Character.isDigit(typedNumber)) {
+        if(Character.isDigit(typedNumber) || Character.isISOControl(typedNumber)) {
             txtEmpId.setEditable(true);
         } else {
             txtEmpId.setEditable(false);
@@ -519,7 +518,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void txtAgeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyPressed
         // TODO add your handling code here:
         char typedNumber = evt.getKeyChar();
-        if(Character.isDigit(typedNumber)) {
+        if(Character.isDigit(typedNumber) || Character.isISOControl(typedNumber)) {
             txtAge.setEditable(true);
         } else {
             txtAge.setEditable(false);

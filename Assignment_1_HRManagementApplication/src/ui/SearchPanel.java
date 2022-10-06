@@ -261,6 +261,9 @@ public class SearchPanel extends javax.swing.JPanel {
                 }else if (rdBtnSearchType.getSelection().getActionCommand() == "Position") {
                     searchResultsList = empList.searchDetailWithPosition(search);
                     tablePanel = new TableJPanel(searchResultsList);
+                } else if (rdBtnSearchType.getSelection().getActionCommand() == "Team") {
+                    searchResultsList = empList.searchDetailWithTeam(search);
+                    tablePanel = new TableJPanel(searchResultsList);
                 }
                 else  {
                     JOptionPane.showMessageDialog(this, "No Search Results Found");
