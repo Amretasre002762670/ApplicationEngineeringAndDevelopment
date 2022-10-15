@@ -71,4 +71,8 @@ public class HospitalList {
         }
         return selectedHospital;
     }
+    
+    public void deleteHospital(Hospital hospital) {
+        hospitalList.remove(hospital);
+    }
 }

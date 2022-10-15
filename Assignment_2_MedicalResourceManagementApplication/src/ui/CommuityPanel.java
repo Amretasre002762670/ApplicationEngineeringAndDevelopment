@@ -64,6 +64,11 @@ public class CommuityPanel extends javax.swing.JPanel {
         });
 
         btnViewHospitals.setText("View Hospitals");
+        btnViewHospitals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewHospitalsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout optionsPanelLayout = new javax.swing.GroupLayout(optionsPanel);
         optionsPanel.setLayout(optionsPanelLayout);
@@ -142,6 +147,12 @@ public class CommuityPanel extends javax.swing.JPanel {
         SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hosList, "Community Login");
         splitPane.setBottomComponent(searchHospitals);
     }//GEN-LAST:event_btnSearchHospitalsActionPerformed
+
+    private void btnViewHospitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHospitalsActionPerformed
+        // TODO add your handling code here:
+        ViewHospitalPanel viewPanel = new ViewHospitalPanel(hosList);
+        splitPane.setBottomComponent(viewPanel);
+    }//GEN-LAST:event_btnViewHospitalsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
