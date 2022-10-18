@@ -5,6 +5,8 @@
 package ui;
 
 import model.HospitalList;
+import model.PatientRecord;
+import model.PatientRecordList;
 import model.PersonList;
 
 /**
@@ -19,10 +21,14 @@ public class MainJFrame extends javax.swing.JFrame {
     
     PersonList prsnList;
     HospitalList hspList;
+    PatientRecord patientRecord;
+    PatientRecordList patientRecordList;
     public MainJFrame() {
         initComponents();
         this.prsnList = new PersonList();
         this.hspList = new HospitalList();
+        this.patientRecord = new PatientRecord();
+        this.patientRecordList = new PatientRecordList();
     }
 
     /**
@@ -55,6 +61,11 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         btnDoctorLogin.setText("Doctor");
+        btnDoctorLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoctorLoginActionPerformed(evt);
+            }
+        });
 
         btnHospitalAdmin.setText("Hospital Admin");
 
@@ -155,6 +166,12 @@ public class MainJFrame extends javax.swing.JFrame {
         CommuityPanel commPanel = new CommuityPanel(hspList);
         splitPane.setRightComponent(commPanel);      
     }//GEN-LAST:event_btnCommAdminActionPerformed
+
+    private void btnDoctorLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorLoginActionPerformed
+        // TODO add your handling code here:
+        DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList);
+        splitPane.setRightComponent(doctorPanel);
+    }//GEN-LAST:event_btnDoctorLoginActionPerformed
 
     /**
      * @param args the command line arguments

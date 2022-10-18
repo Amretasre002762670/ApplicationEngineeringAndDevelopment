@@ -27,16 +27,15 @@ public class PersonList {
     
     //constructor
     public PersonList() {
-        
         //initialising the array list with Person type
         this.userList = new ArrayList<Person>();
     }
     
     //method to add new users to user list
-    public Person addUsers() {
-        Person newUser = new Person();
-        userList.add(newUser);
-        return newUser;
+    public Person addPersonAddressDetails() {
+        Person newPerson = new Person();
+        userList.add(newPerson);
+        return newPerson;
     }
     
 }

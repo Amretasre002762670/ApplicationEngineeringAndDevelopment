@@ -234,16 +234,14 @@ public class UserLoginWindow extends javax.swing.JPanel {
         // TODO add your handling code here:
         password = txtPassword.getText();
         
-        Person person = prsnList.addUsers();
+        Person person = prsnList.addPersonAddressDetails();
         
         if(userID == 0 || emailID.isEmpty() || password.isEmpty() || birthDate.isEmpty() || pincode == 0) {
             
             JOptionPane.showMessageDialog(this, "Every Field Should Be Filled!");
         } else {
             
-            person.setUserId(userID);
-            person.setEmailId(emailID);
-            person.setPassword(password);
+            person.setPersonId(userID);
             person.setBirthDate(birthDate);
             person.setPincode(pincode);
             

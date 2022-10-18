@@ -10,42 +10,27 @@ package model;
  */
 public class Person {
     
-    private long userId;
-    private String emailId;
-    private String password;
+    private long personId;
+    private String personName;
     private String birthDate;
+    private String personCommunity;
+    private String personCity;
     private long pincode;
 
-    public long getPincode() {
-        return pincode;
+    public long getPersonId() {
+        return personId;
     }
 
-    public void setPincode(long pincode) {
-        this.pincode = pincode;
+    public void setPersonId(long personId) {
+        this.personId = personId;
     }
 
-    public long getUserId() {
-        return userId;
+    public String getPersonName() {
+        return personName;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPersonName(String personName) {
+        this.personName = personName;
     }
 
     public String getBirthDate() {
@@ -55,5 +40,34 @@ public class Person {
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
+
+    public String getPersonCommunity() {
+        return personCommunity;
+    }
+
+    public void setPersonCommunity(String personCommunity) {
+        this.personCommunity = personCommunity;
+    }
+
+    public String getPersonCity() {
+        return personCity;
+    }
+
+    public void setPersonCity(String personCity) {
+        this.personCity = personCity;
+    }
+
+    public long getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(long pincode) {
+        this.pincode = pincode;
+    }
+
+    
+    
+    
+    
     
 }
