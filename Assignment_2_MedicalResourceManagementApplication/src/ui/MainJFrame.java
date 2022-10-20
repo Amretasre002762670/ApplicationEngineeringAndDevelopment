@@ -23,12 +23,15 @@ public class MainJFrame extends javax.swing.JFrame {
     HospitalList hspList;
     PatientRecord patientRecord;
     PatientRecordList patientRecordList;
+    PatientRecordList fullPatientRecord;
+    
     public MainJFrame() {
         initComponents();
         this.prsnList = new PersonList();
         this.hspList = new HospitalList();
         this.patientRecord = new PatientRecord();
         this.patientRecordList = new PatientRecordList();
+//        this.fullPatientRecord = new PatientRecordList(prsnList);
     }
 
     /**
@@ -44,7 +47,7 @@ public class MainJFrame extends javax.swing.JFrame {
         loginOptions = new javax.swing.JPanel();
         btnUserLogin = new javax.swing.JButton();
         btnDoctorLogin = new javax.swing.JButton();
-        btnHospitalAdmin = new javax.swing.JButton();
+        btnSystemAdmin = new javax.swing.JButton();
         btnCommAdmin = new javax.swing.JButton();
         loginForm = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -67,7 +70,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnHospitalAdmin.setText("Hospital Admin");
+        btnSystemAdmin.setText("System Admin");
 
         btnCommAdmin.setText("Community Admin");
         btnCommAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -85,12 +88,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(loginOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUserLogin)
                     .addComponent(btnDoctorLogin)
-                    .addComponent(btnHospitalAdmin)
+                    .addComponent(btnSystemAdmin)
                     .addComponent(btnCommAdmin))
-                .addGap(10, 10, 10))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        loginOptionsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCommAdmin, btnDoctorLogin, btnHospitalAdmin, btnUserLogin});
+        loginOptionsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCommAdmin, btnDoctorLogin, btnSystemAdmin, btnUserLogin});
 
         loginOptionsLayout.setVerticalGroup(
             loginOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,10 +103,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addComponent(btnDoctorLogin)
                 .addGap(100, 100, 100)
-                .addComponent(btnHospitalAdmin)
+                .addComponent(btnSystemAdmin)
                 .addGap(100, 100, 100)
                 .addComponent(btnCommAdmin)
-                .addGap(250, 250, 250))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         splitPane.setTopComponent(loginOptions);
@@ -114,11 +117,11 @@ public class MainJFrame extends javax.swing.JFrame {
         loginForm.setLayout(loginFormLayout);
         loginFormLayout.setHorizontalGroup(
             loginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         loginFormLayout.setVerticalGroup(
             loginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
+            .addGap(0, 932, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(loginForm);
@@ -135,11 +138,11 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE)
+                .addComponent(splitPane)
                 .addGap(9, 9, 9))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -169,7 +172,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnDoctorLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorLoginActionPerformed
         // TODO add your handling code here:
-        DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList);
+        DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList, prsnList );
         splitPane.setRightComponent(doctorPanel);
     }//GEN-LAST:event_btnDoctorLoginActionPerformed
 
@@ -211,7 +214,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCommAdmin;
     private javax.swing.JButton btnDoctorLogin;
-    private javax.swing.JButton btnHospitalAdmin;
+    private javax.swing.JButton btnSystemAdmin;
     private javax.swing.JButton btnUserLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel loginForm;

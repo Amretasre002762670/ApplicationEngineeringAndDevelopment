@@ -24,8 +24,6 @@ public class UserLoginWindow extends javax.swing.JPanel {
     long userID;
     boolean isEmailIDValid;
     String emailID;
-    boolean isBirthDateValid;
-    String birthDate;
     String password;
     long pincode;
 
@@ -35,7 +33,6 @@ public class UserLoginWindow extends javax.swing.JPanel {
         this.prsnList = prsnList;
         lblWarningUserid.setVisible(false);
         lblWarningEmailId.setVisible(false);
-        lblWarningDob.setVisible(false);
         lblWarningPincode.setVisible(false);
     }
 
@@ -52,16 +49,13 @@ public class UserLoginWindow extends javax.swing.JPanel {
         lblUserId = new javax.swing.JLabel();
         lblEmailId = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
-        lblDob = new javax.swing.JLabel();
         txtUserId = new javax.swing.JTextField();
         txtEmailId = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
-        txtDob = new javax.swing.JTextField();
         btnUserLogin = new javax.swing.JButton();
         lblWarningUserid = new javax.swing.JLabel();
         lblWarningEmailId = new javax.swing.JLabel();
         lblWarningPassword = new javax.swing.JLabel();
-        lblWarningDob = new javax.swing.JLabel();
         lblPincode = new javax.swing.JLabel();
         txtPincode = new javax.swing.JTextField();
         lblWarningPincode = new javax.swing.JLabel();
@@ -88,11 +82,6 @@ public class UserLoginWindow extends javax.swing.JPanel {
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPassword.setText("Password:");
 
-        lblDob.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        lblDob.setForeground(new java.awt.Color(51, 51, 255));
-        lblDob.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDob.setText("Date of Birth:");
-
         txtUserId.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtUserIdFocusLost(evt);
@@ -110,12 +99,6 @@ public class UserLoginWindow extends javax.swing.JPanel {
             }
         });
 
-        txtDob.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtDobFocusLost(evt);
-            }
-        });
-
         btnUserLogin.setForeground(new java.awt.Color(0, 153, 51));
         btnUserLogin.setText("Add User");
         btnUserLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -129,9 +112,6 @@ public class UserLoginWindow extends javax.swing.JPanel {
 
         lblWarningEmailId.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningEmailId.setText("Invalid Email ID!");
-
-        lblWarningDob.setForeground(new java.awt.Color(255, 0, 0));
-        lblWarningDob.setText("Invalid Date Format!");
 
         lblPincode.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         lblPincode.setForeground(new java.awt.Color(51, 51, 255));
@@ -167,21 +147,18 @@ public class UserLoginWindow extends javax.swing.JPanel {
                             .addComponent(lblPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblUserId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblEmailId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDob, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                            .addComponent(lblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUserId)
+                            .addComponent(txtUserId, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .addComponent(txtEmailId)
                             .addComponent(txtPassword)
-                            .addComponent(txtDob, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .addComponent(txtPincode))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblWarningUserid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblWarningEmailId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblWarningEmailId, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                             .addComponent(lblWarningPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblWarningDob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblWarningPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 24, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -210,12 +187,7 @@ public class UserLoginWindow extends javax.swing.JPanel {
                     .addComponent(lblPassword)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblWarningPassword))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDob)
-                    .addComponent(txtDob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblWarningDob))
-                .addGap(18, 18, 18)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPincode)
                     .addComponent(txtPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,23 +208,20 @@ public class UserLoginWindow extends javax.swing.JPanel {
         
         Person person = prsnList.addPersonAddressDetails();
         
-        if(userID == 0 || emailID.isEmpty() || password.isEmpty() || birthDate.isEmpty() || pincode == 0) {
+        if(userID == 0 || emailID.isEmpty() || password.isEmpty() ||  pincode == 0) {
             
             JOptionPane.showMessageDialog(this, "Every Field Should Be Filled!");
         } else {
             
             person.setPersonId(userID);
-            person.setBirthDate(birthDate);
             person.setPincode(pincode);
             
             lblWarningUserid.setVisible(false);
             lblWarningEmailId.setVisible(false);
-            lblWarningDob.setVisible(false);
             lblWarningPincode.setVisible(false);
             
             JOptionPane.showMessageDialog(this, "User Added!");
             
-            txtDob.setText("");
             txtEmailId.setText("");
             txtPassword.setText("");
             txtPincode.setText("");
@@ -293,21 +262,6 @@ public class UserLoginWindow extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_txtEmailIdFocusLost
-
-    private void txtDobFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDobFocusLost
-        // TODO add your handling code here:
-        String userEnteredDob = txtDob.getText();
-        birthDate = checkDate(userEnteredDob);
-        if(userEnteredDob.isEmpty()) {
-            lblWarningDob.setVisible(false);
-        } else {
-            if(isBirthDateValid) {
-                lblWarningDob.setVisible(false);
-            } else {
-                lblWarningDob.setVisible(true);
-            } 
-        }
-    }//GEN-LAST:event_txtDobFocusLost
 
     private void txtPincodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPincodeActionPerformed
         // TODO add your handling code here:
@@ -351,19 +305,6 @@ public class UserLoginWindow extends javax.swing.JPanel {
         }        
     }
     
-    public String checkDate(String birthDate) {
-        String regex = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$";
-        //Creating a pattern object
-        Pattern pattern = Pattern.compile(regex);
-        //Matching the compiled pattern in the String
-        Matcher matcher = pattern.matcher(birthDate);
-       isBirthDateValid = matcher.matches();
-        if(isBirthDateValid) {
-            return birthDate;
-        } else {
-            return "";
-        }
-    }
     
     public long checkPincode(String pincode) {
        String regex = "\\d{5}";
@@ -379,18 +320,15 @@ public class UserLoginWindow extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnUserLogin;
-    private javax.swing.JLabel lblDob;
     private javax.swing.JLabel lblEmailId;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPincode;
     private javax.swing.JLabel lblUserId;
     private javax.swing.JLabel lblUserLoginTitle;
-    private javax.swing.JLabel lblWarningDob;
     private javax.swing.JLabel lblWarningEmailId;
     private javax.swing.JLabel lblWarningPassword;
     private javax.swing.JLabel lblWarningPincode;
     private javax.swing.JLabel lblWarningUserid;
-    private javax.swing.JTextField txtDob;
     private javax.swing.JTextField txtEmailId;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPincode;

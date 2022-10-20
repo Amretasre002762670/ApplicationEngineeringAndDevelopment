@@ -10,18 +10,24 @@ import java.util.ArrayList;
  *
  * @author amretasrerengarajan
  */
-public class PatientRecordList {
+public class PatientRecordList extends PersonList {
     
     ArrayList<PatientRecord> patientRecordList;
-    
+    PersonList personList;
+
     public PatientRecordList() {
         this.patientRecordList = new ArrayList<PatientRecord>();
+    }
+    
+    public PatientRecordList(PersonList personList) {
+        this.personList = personList;
     }
     
     public PatientRecord addPatientRecord() {
         PatientRecord newPatient = new PatientRecord();
         patientRecordList.add(newPatient);
         return newPatient;
+        
     }
     
     public boolean checkPatientRecordExist(long patientId, String patientName) {
@@ -30,6 +36,10 @@ public class PatientRecordList {
             isExist = ((patRec.getPatientId() == patientId) && (patRec.getPatientName().equals(patientName)));
         }
         return isExist;
+    }
+    
+    public int checkSizePatientRecord() {
+        return patientRecordList.size();
     }
     
 }

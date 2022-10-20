@@ -12,7 +12,6 @@ public class Person {
     
     private long personId;
     private String personName;
-    private String birthDate;
     private String personCommunity;
     private String personCity;
     private long pincode;
@@ -31,14 +30,6 @@ public class Person {
 
     public void setPersonName(String personName) {
         this.personName = personName;
-    }
-
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
     }
 
     public String getPersonCommunity() {

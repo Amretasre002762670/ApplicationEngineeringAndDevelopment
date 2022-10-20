@@ -6,6 +6,7 @@ package ui;
 
 import model.PatientRecord;
 import model.PatientRecordList;
+import model.PersonList;
 
 /**
  *
@@ -18,10 +19,13 @@ public class DoctorPanel extends javax.swing.JPanel {
      */
     PatientRecord patientRecord;
     PatientRecordList patientRecordList;
-    public DoctorPanel(PatientRecord patientRecord, PatientRecordList patientRecordList) {
+    PersonList personList;
+//    PatientRecordList fullPatientRecord;
+    public DoctorPanel(PatientRecord patientRecord, PatientRecordList patientRecordList, PersonList personList) {
         initComponents();
         this.patientRecord = patientRecord;
         this.patientRecordList = patientRecordList;
+        this.personList = personList;
     }
 
     /**
@@ -64,6 +68,11 @@ public class DoctorPanel extends javax.swing.JPanel {
         });
 
         btnNewPatient.setText("Add New Patient Record");
+        btnNewPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewPatientActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,9 +147,15 @@ public class DoctorPanel extends javax.swing.JPanel {
 
     private void btnAddRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRecordActionPerformed
         // TODO add your handling code here:
-        AddEncounterPanel addEncounterPanel = new AddEncounterPanel(patientRecordList, patientRecord);
+        AddPatientEncounter addEncounterPanel = new AddPatientEncounter(patientRecordList, patientRecord, personList);
         splitPane.setBottomComponent(addEncounterPanel);
     }//GEN-LAST:event_btnAddRecordActionPerformed
+
+    private void btnNewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewPatientActionPerformed
+        // TODO add your handling code here:
+        AddPatientPanel addPatientPanel = new AddPatientPanel(patientRecordList, personList);
+        splitPane.setBottomComponent(addPatientPanel);
+    }//GEN-LAST:event_btnNewPatientActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
