@@ -83,7 +83,7 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         txtPatientID = new javax.swing.JTextField();
         txtPatientName = new javax.swing.JTextField();
         btnUpdateEncounter = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnDeleteEncounter = new javax.swing.JButton();
         lblSysPressure = new javax.swing.JLabel();
         txtSysPressure = new javax.swing.JTextField();
         txtDiaPressure = new javax.swing.JTextField();
@@ -188,7 +188,12 @@ public class ViewPatientPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Delete Vital");
+        btnDeleteEncounter.setText("Delete Vital");
+        btnDeleteEncounter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteEncounterActionPerformed(evt);
+            }
+        });
 
         lblSysPressure.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         lblSysPressure.setForeground(new java.awt.Color(255, 0, 204));
@@ -305,7 +310,7 @@ public class ViewPatientPanel extends javax.swing.JPanel {
                 .addGap(100, 100, 100)
                 .addComponent(btnUpdateEncounter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnDeleteEncounter)
                 .addGap(100, 100, 100))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -375,7 +380,7 @@ public class ViewPatientPanel extends javax.swing.JPanel {
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblSearchBox, lblSearchType});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSaveVitals, btnUpdateEncounter, jButton2});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDeleteEncounter, btnSaveVitals, btnUpdateEncounter});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,7 +412,7 @@ public class ViewPatientPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdateEncounter)
-                    .addComponent(jButton2))
+                    .addComponent(btnDeleteEncounter))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSysPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -754,15 +759,40 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         txtHeartBeat.setText("");
         txtSysPressure.setText("");
         txtTemperature.setText("");
+        
+        addTableWithVitals();
     }//GEN-LAST:event_btnSaveVitalsActionPerformed
+
+    private void btnDeleteEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEncounterActionPerformed
+        // TODO add your handling code here:
+        int encounterInd = tblViewEncounter.getSelectedRow();
+
+        if (encounterInd < 0) {
+            //if there is no row selected then a dialog is displayed
+            JOptionPane.showMessageDialog(this, "Select the Record to be Updated.");
+            return;
+        }
+
+        DefaultTableModel encounterTable = (DefaultTableModel) tblViewEncounter.getModel();
+
+        Encounter selectedEncounter = (Encounter) encounterTable.getValueAt(encounterInd, 0);
+        
+        PatientRecord patient = patientList.getPersonDetailsWithPatientId(patientID);
+        
+        patient.removeEncounter(selectedEncounter);
+        
+        JOptionPane.showMessageDialog(this, "Deleted the Details");
+        
+        addTableWithVitals();
+    }//GEN-LAST:event_btnDeleteEncounterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDeleteEncounter;
     private javax.swing.JButton btnSaveVitals;
     private javax.swing.JButton btnSearchPatient;
     private javax.swing.JButton btnUpdateEncounter;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBreathing;

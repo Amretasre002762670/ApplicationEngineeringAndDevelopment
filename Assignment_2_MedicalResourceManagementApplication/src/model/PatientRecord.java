@@ -58,6 +58,10 @@ public class PatientRecord extends Person {
         return updatedEncounter;
     }
     
+    public void removeEncounter(Encounter deleteEncounter) {
+        encounterList.remove(deleteEncounter);
+    }
+    
     public int checkSizeOfEncounters() {
         return encounterList.size();
     }

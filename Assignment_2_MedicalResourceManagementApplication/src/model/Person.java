@@ -56,4 +56,8 @@ public class Person {
         this.pincode = pincode;
     }
 
+    @Override    
+    public String toString() { 
+        return personName; 
+    }
 }

@@ -650,10 +650,14 @@ public class AddPatientPanel extends javax.swing.JPanel {
         boolean checkPersonExistInPersonList = personList.searchPersonByPatientID(patientID);
 
         if (txtPatientCity.getText().isEmpty() || txtPatientComm.getText().isEmpty() || txtPatientID.getText().isEmpty()
-                || txtPatientName.getText().isEmpty() || txtPatientPincode.getText().isEmpty()) {
+                || txtPatientName.getText().isEmpty() || txtPatientPincode.getText().isEmpty()
+                || txtBreathing.getText().isEmpty() || txtDateTaken.getText().isEmpty() || txtDiaPressure.getText().isEmpty()
+                || txtHeartBeat.getText().isEmpty()
+                || txtSysPressure.getText().isEmpty() || txtTemperature.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are mandatory");
         } else {
             if (checkPatientExistsInPatientList && checkPersonExistInPersonList) {
+                
                 JOptionPane.showMessageDialog(this, "This patient already exists! Add encounter details only");
                 txtPatientCity.setText("");
                 txtPatientComm.setText("");
@@ -719,11 +723,6 @@ public class AddPatientPanel extends javax.swing.JPanel {
                 txtSysPressure.setText("");
                 txtTemperature.setText("");
 
-                boolean checkPatientExistsInPatientList1 = patientList.searchPersonByPatientID(patientID);
-                System.out.println(checkPatientExistsInPatientList1 + " in patient list(AddPatientPanel)");
-
-                boolean checkPersonExistInPersonList1 = personList.searchPersonByPatientID(patientID);
-                System.out.println(checkPersonExistInPersonList1 + " in Person list (AddPatientPanel)");
             }
         }
     }//GEN-LAST:event_btnAddPatientActionPerformed

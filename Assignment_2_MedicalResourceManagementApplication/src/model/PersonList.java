@@ -93,5 +93,12 @@ public class PersonList {
         }
         return searchResult;
     }
+    
+    public Person updatePersonDetails(Person selectedPerson, int personInd) {
+        if(userList.contains(selectedPerson)) {
+            userList.set(personInd, selectedPerson);
+        }
+        return selectedPerson;
+    }
 
 }

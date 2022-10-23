@@ -59,6 +59,11 @@ public class DoctorPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 0, 204));
 
         btnView.setText("View All");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         btnSearch.setText("Search Record");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +174,12 @@ public class DoctorPanel extends javax.swing.JPanel {
         ViewPatientPanel viewEncounterRecord = new ViewPatientPanel(patientRecordList, patientRecord, personList);
         splitPane.setBottomComponent(viewEncounterRecord);
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        ViewPersonPanel viewPersonDetails = new ViewPersonPanel(personList);
+        splitPane.setBottomComponent(viewPersonDetails);
+    }//GEN-LAST:event_btnViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
