@@ -29,10 +29,15 @@ public class PersonList {
         //initialising the array list with Person type
         this.userList = new ArrayList<Person>();
     }
+    
+    public Person addPersonRecord() {
+        Person newPerson = new Person();
+        userList.add(newPerson);
+        return newPerson;        
+    }
 
     //method to add new users to user list
-    public Person addPersonAddressDetails() {
-        Person newPerson = new Person();
+    public Person addPersonAddressDetails(Person newPerson) {
         userList.add(newPerson);
         return newPerson;
     }
@@ -40,10 +45,8 @@ public class PersonList {
     public boolean checkPersonDetailsExist(long patientId, String patientName) {
         boolean result = false;
         for (Person prsn : userList) {
-            if ((prsn.getPersonId() == patientId) && (prsn.getPersonName().equals(patientName))) {
-                result = true;
-                break;
-            }
+            result = ((prsn.getPersonId() == patientId) && (prsn.getPersonName().equals(patientName)));
+            break;
         }
         return result;
     }
@@ -65,7 +68,6 @@ public class PersonList {
         Person searchResult = new Person();
         for (Person person : userList) {
             if (person.getPersonId() == patientID) {
-                searchResult = person;
                 break;
             }
         }
@@ -75,7 +77,7 @@ public class PersonList {
     public boolean searchPersonByPatientName(String patientName) {
         boolean searchResult = false;
         for (Person person : userList) {
-            searchResult = person.getPersonName().equals(patientName); 
+            searchResult = person.getPersonName().equals(patientName);
             break;
         }
         return searchResult;

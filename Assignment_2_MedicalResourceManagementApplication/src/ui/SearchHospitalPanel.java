@@ -72,13 +72,16 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
         txtUpdateHelpline = new javax.swing.JTextField();
         btnUpdateDetails = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 255, 255));
+        setBackground(new java.awt.Color(0, 255, 204));
+        setForeground(new java.awt.Color(255, 0, 153));
 
         lblTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 0, 153));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Search Hospitals");
 
         lblSearchHospitals.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblSearchHospitals.setForeground(new java.awt.Color(255, 0, 153));
         lblSearchHospitals.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSearchHospitals.setText("Search Hospitals By:");
 
@@ -106,6 +109,7 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
             }
         });
 
+        lblSearch.setForeground(new java.awt.Color(255, 0, 153));
         lblSearch.setText("Search:");
 
         btnSearch.setText("Search");
@@ -115,6 +119,7 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
             }
         });
 
+        tblHospitalsView.setForeground(new java.awt.Color(255, 0, 153));
         tblHospitalsView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -149,20 +154,30 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
             }
         });
 
-        updatePanel.setBackground(new java.awt.Color(255, 204, 204));
+        updatePanel.setBackground(new java.awt.Color(255, 0, 204));
 
+        lblUpdateName.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblUpdateName.setForeground(new java.awt.Color(0, 255, 204));
         lblUpdateName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUpdateName.setText("Hospital Name:");
 
+        lblUpdateCity.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblUpdateCity.setForeground(new java.awt.Color(0, 255, 204));
         lblUpdateCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUpdateCity.setText("City:");
 
+        lblUpdateCommunity.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblUpdateCommunity.setForeground(new java.awt.Color(0, 255, 204));
         lblUpdateCommunity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUpdateCommunity.setText("Community:");
 
+        lblUpdatePincode.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblUpdatePincode.setForeground(new java.awt.Color(0, 255, 204));
         lblUpdatePincode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUpdatePincode.setText("Pincode:");
 
+        lblUpdateHelpline.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblUpdateHelpline.setForeground(new java.awt.Color(0, 255, 204));
         lblUpdateHelpline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUpdateHelpline.setText("Helpline:");
 
@@ -234,23 +249,7 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(lblSearchHospitals, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(rdBtnName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(rdBtnPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(rdBtnCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(separator, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -266,7 +265,21 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(239, 239, 239)
                                 .addComponent(btnUpdateHos)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(107, 107, 107)
+                                .addComponent(lblSearchHospitals, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(rdBtnName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rdBtnPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rdBtnCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1))))
                 .addContainerGap())
         );
 

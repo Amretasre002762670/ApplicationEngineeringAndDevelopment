@@ -4,7 +4,11 @@
  */
 package ui;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import model.Encounter;
+import model.PatientRecord;
 import model.PatientRecordList;
 import model.Person;
 import model.PersonList;
@@ -33,17 +37,38 @@ public class AddPatientPanel extends javax.swing.JPanel {
     PatientRecordList patientList;
     PersonList personList;
 
-    public AddPatientPanel(PatientRecordList patientList, PersonList personList) {
+    boolean isSysPresValid;
+    boolean isDiaPresValid;
+    boolean isDateValid;
+    boolean isBreathingRateValid;
+    boolean isHeartBeatValid;
+    boolean isTemperatureValid;
+
+    int patientSysPressure;
+    int patientDiaPressure;
+    int patientBreathing;
+    int patientHeartRate;
+    float patientTemperature;
+    String patientEncounterDateTaken;
+
+    public AddPatientPanel(PatientRecordList patientHis, PersonList personHis) {
         initComponents();
 
-        this.patientList = patientList;
-        this.personList = personList;
+        this.patientList = patientHis;
+        this.personList = personHis;
 
         lblWarningCity.setVisible(false);
         lblWarningComm.setVisible(false);
         lblWarningPatID.setVisible(false);
         lblWarningPatName.setVisible(false);
         lblWarningPincode.setVisible(false);
+
+        lblWarningDate.setVisible(false);
+        lblWarningDiaPressure.setVisible(false);
+        lblWarningBreathing.setVisible(false);
+        lblWarningHeartBeat.setVisible(false);
+        lblWarningTemperature.setVisible(false);
+        lblWarningSysPressure.setVisible(false);
     }
 
     /**
@@ -109,6 +134,90 @@ public class AddPatientPanel extends javax.swing.JPanel {
         }
         return result;
     }
+
+    public int checkSystolicPressure(String sysPressure) {
+        String regex = "\\d{3}";
+        int result;
+        isSysPresValid = sysPressure.matches(regex);
+        if (sysPressure.isEmpty()) {
+            result = 0;
+        } else {
+            result = Integer.parseInt(sysPressure);
+        }
+        if (isSysPresValid && (result >= 120 || result <= 140)) {
+            return result;
+        } else {
+            result = 0;
+            return result;
+        }
+    }
+
+    public int checkDiastolicPressure(String diaPressure) {
+        String regex = "\\d{2}";
+        int result;
+        isDiaPresValid = diaPressure.matches(regex);
+        if (diaPressure.isEmpty()) {
+            result = 0;
+        } else {
+            result = Integer.parseInt(diaPressure);
+        }
+        if (isDiaPresValid && (result >= 80 || result <= 89)) {
+            return result;
+        } else {
+            result = 0;
+            return result;
+        }
+    }
+
+    public int checkBreathing(String breathingRate) {
+        String regex = "\\d{2}";
+        int result;
+        isBreathingRateValid = breathingRate.matches(regex);
+        if (isBreathingRateValid && !breathingRate.isEmpty()) {
+            result = Integer.parseInt(breathingRate);
+        } else {
+            result = 0;
+        }
+        return result;
+    }
+
+    public int checkHeartBeat(String heartBeat) {
+        String regex = "\\d{2}";
+        int result;
+        isHeartBeatValid = heartBeat.matches(regex);
+        if (isHeartBeatValid && !heartBeat.isEmpty()) {
+            result = Integer.parseInt(heartBeat);
+        } else {
+            result = 0;
+        }
+        return result;
+    }
+
+    public float checkTemperature(String temperature) {
+        String regex = "[+-]?([0-9]*[.])?[0-9]+";
+        float result;
+        isTemperatureValid = temperature.matches(regex);
+        if (isTemperatureValid && !temperature.isEmpty()) {
+            result = Float.parseFloat(temperature);
+        } else {
+            result = 0.0F;
+        }
+        return result;
+    }
+
+    public String checkDateTaken(String dateTaken) {
+        String regex = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$";
+        //Creating a pattern object
+        Pattern pattern = Pattern.compile(regex);
+        //Matching the compiled pattern in the String
+        Matcher matcher = pattern.matcher(dateTaken);
+        isDateValid = matcher.matches();
+        if (isDateValid) {
+            return dateTaken;
+        } else {
+            return "";
+        }
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -129,11 +238,30 @@ public class AddPatientPanel extends javax.swing.JPanel {
         lblWarningPatName = new javax.swing.JLabel();
         lblWarningComm = new javax.swing.JLabel();
         lblPatienCity = new javax.swing.JLabel();
+        lblDiaPressure = new javax.swing.JLabel();
+        txtDiaPressure = new javax.swing.JTextField();
+        lblWarningDiaPressure = new javax.swing.JLabel();
+        lblBreathing = new javax.swing.JLabel();
+        txtBreathing = new javax.swing.JTextField();
+        lblWarningBreathing = new javax.swing.JLabel();
+        lblHeartBeat = new javax.swing.JLabel();
+        txtHeartBeat = new javax.swing.JTextField();
+        lblWarningHeartBeat = new javax.swing.JLabel();
+        lblWarningTemperature = new javax.swing.JLabel();
+        txtTemperature = new javax.swing.JTextField();
+        lblSysPressure = new javax.swing.JLabel();
+        lblTemperature = new javax.swing.JLabel();
+        lblDateTaken = new javax.swing.JLabel();
+        txtDateTaken = new javax.swing.JTextField();
+        txtSysPressure = new javax.swing.JTextField();
+        lblWarningSysPressure = new javax.swing.JLabel();
+        lblWarningDate = new javax.swing.JLabel();
+        lblEncounterTitle = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 102, 255));
+        setBackground(new java.awt.Color(0, 255, 204));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 255, 204));
+        jLabel1.setForeground(new java.awt.Color(255, 0, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add New Patient Details!");
 
@@ -146,6 +274,8 @@ public class AddPatientPanel extends javax.swing.JPanel {
         lblWarningCity.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningCity.setText("Boston or boston!");
 
+        lblPatientPincode.setForeground(new java.awt.Color(255, 0, 204));
+        lblPatientPincode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPatientPincode.setText("Pincode:");
 
         txtPatientPincode.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -157,10 +287,16 @@ public class AddPatientPanel extends javax.swing.JPanel {
         lblWarningPincode.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningPincode.setText("Invalid!");
 
+        lblPatientId.setForeground(new java.awt.Color(255, 0, 204));
+        lblPatientId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPatientId.setText("Patient ID:");
 
+        lblPatientName.setForeground(new java.awt.Color(255, 0, 204));
+        lblPatientName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPatientName.setText("Patient Name:");
 
+        lblPatientComm.setForeground(new java.awt.Color(255, 0, 204));
+        lblPatientComm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPatientComm.setText("Community:");
 
         txtPatientName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -181,6 +317,7 @@ public class AddPatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAddPatient.setForeground(new java.awt.Color(0, 153, 153));
         btnAddPatient.setText("Add Patient Record");
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +334,95 @@ public class AddPatientPanel extends javax.swing.JPanel {
         lblWarningComm.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningComm.setText("Invalid!");
 
+        lblPatienCity.setForeground(new java.awt.Color(255, 0, 204));
+        lblPatienCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPatienCity.setText("City:");
+
+        lblDiaPressure.setForeground(new java.awt.Color(255, 0, 204));
+        lblDiaPressure.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDiaPressure.setText("Diastolic Pressure:");
+
+        txtDiaPressure.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDiaPressureFocusLost(evt);
+            }
+        });
+
+        lblWarningDiaPressure.setForeground(new java.awt.Color(255, 0, 0));
+        lblWarningDiaPressure.setText("Invalid!");
+
+        lblBreathing.setForeground(new java.awt.Color(255, 0, 204));
+        lblBreathing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBreathing.setText("Breathing");
+
+        txtBreathing.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBreathingFocusLost(evt);
+            }
+        });
+
+        lblWarningBreathing.setForeground(new java.awt.Color(255, 0, 0));
+        lblWarningBreathing.setText("Invalid!");
+
+        lblHeartBeat.setForeground(new java.awt.Color(255, 0, 204));
+        lblHeartBeat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeartBeat.setText("Heart Beats:");
+
+        txtHeartBeat.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtHeartBeatFocusLost(evt);
+            }
+        });
+
+        lblWarningHeartBeat.setForeground(new java.awt.Color(255, 0, 0));
+        lblWarningHeartBeat.setText("Invalid!");
+
+        lblWarningTemperature.setForeground(new java.awt.Color(255, 0, 0));
+        lblWarningTemperature.setText("Invalid!");
+
+        txtTemperature.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTemperatureFocusLost(evt);
+            }
+        });
+
+        lblSysPressure.setForeground(new java.awt.Color(255, 0, 204));
+        lblSysPressure.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSysPressure.setText("Systolic Pressure:");
+
+        lblTemperature.setForeground(new java.awt.Color(255, 0, 204));
+        lblTemperature.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTemperature.setText("Temperature:");
+
+        lblDateTaken.setForeground(new java.awt.Color(255, 0, 204));
+        lblDateTaken.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDateTaken.setText("Date Taken: ");
+
+        txtDateTaken.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDateTakenFocusLost(evt);
+            }
+        });
+        txtDateTaken.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateTakenActionPerformed(evt);
+            }
+        });
+
+        txtSysPressure.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSysPressureFocusLost(evt);
+            }
+        });
+
+        lblWarningSysPressure.setForeground(new java.awt.Color(255, 0, 0));
+        lblWarningSysPressure.setText("Invalid!");
+
+        lblWarningDate.setForeground(new java.awt.Color(255, 0, 0));
+        lblWarningDate.setText("Invalid Date!");
+
+        lblEncounterTitle.setForeground(new java.awt.Color(255, 0, 204));
+        lblEncounterTitle.setText("Add Encounter Details");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,14 +434,20 @@ public class AddPatientPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblPatientPincode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPatienCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPatientComm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPatientName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                            .addComponent(lblPatientId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPatientPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPatienCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPatientComm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                            .addComponent(lblPatientId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblHeartBeat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblBreathing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDiaPressure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblSysPressure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDateTaken, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -235,15 +466,37 @@ public class AddPatientPanel extends javax.swing.JPanel {
                                 .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblWarningPatID, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnAddPatient)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtPatientCity, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(lblWarningCity, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(lblWarningCity, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtSysPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(txtDiaPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(txtBreathing, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(txtHeartBeat, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(txtTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(txtDateTaken, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(btnAddPatient))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lblWarningHeartBeat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblWarningBreathing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblWarningDiaPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblWarningSysPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblWarningDate, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblWarningTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblEncounterTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(57, Short.MAX_VALUE))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblWarningCity, lblWarningComm, lblWarningPatID, lblWarningPatName, lblWarningPincode});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblBreathing, lblDateTaken, lblDiaPressure, lblHeartBeat, lblPatienCity, lblPatientComm, lblPatientId, lblPatientName, lblPatientPincode, lblSysPressure, lblTemperature});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,9 +528,41 @@ public class AddPatientPanel extends javax.swing.JPanel {
                     .addComponent(txtPatientPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblWarningPincode)
                     .addComponent(lblPatientPincode))
-                .addGap(29, 29, 29)
+                .addGap(13, 13, 13)
+                .addComponent(lblEncounterTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSysPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningSysPressure)
+                    .addComponent(lblSysPressure))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDiaPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningDiaPressure)
+                    .addComponent(lblDiaPressure))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBreathing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningBreathing)
+                    .addComponent(lblBreathing))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHeartBeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningHeartBeat)
+                    .addComponent(lblHeartBeat))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningTemperature)
+                    .addComponent(lblTemperature))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDateTaken, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningDate)
+                    .addComponent(lblDateTaken))
+                .addGap(18, 18, 18)
                 .addComponent(btnAddPatient)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblPatienCity, lblPatientComm, lblPatientId, lblPatientName, lblPatientPincode});
@@ -361,33 +646,63 @@ public class AddPatientPanel extends javax.swing.JPanel {
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
-        boolean checkPatientExistsInPerson = personList.checkPersonDetailsExist(patientID, patientName);
-        
+        boolean checkPatientExistsInPatientList = patientList.searchPersonByPatientID(patientID);
+        boolean checkPersonExistInPersonList = personList.searchPersonByPatientID(patientID);
+
         if (txtPatientCity.getText().isEmpty() || txtPatientComm.getText().isEmpty() || txtPatientID.getText().isEmpty()
                 || txtPatientName.getText().isEmpty() || txtPatientPincode.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are mandatory");
         } else {
-            if (checkPatientExistsInPerson) {
-                JOptionPane.showMessageDialog(this, "This patient already exists! Add in Patient Record");
+            if (checkPatientExistsInPatientList && checkPersonExistInPersonList) {
+                JOptionPane.showMessageDialog(this, "This patient already exists! Add encounter details only");
                 txtPatientCity.setText("");
                 txtPatientComm.setText("");
                 txtPatientID.setText("");
                 txtPatientName.setText("");
                 txtPatientPincode.setText("");
-            } else {
-                Person newPerson = personList.addPersonAddressDetails();
 
-                newPerson.setPersonId(patientID);
-                newPerson.setPersonName(patientName);
-                newPerson.setPersonCommunity(patientComm);
-                newPerson.setPersonCity(patientCity);
-                newPerson.setPincode(patientPincode);
+                txtBreathing.setText("");
+                txtDateTaken.setText("");
+                txtDiaPressure.setText("");
+                txtHeartBeat.setText("");
+                txtSysPressure.setText("");
+                txtTemperature.setText("");
+            } else {
+
+                Person newPer = personList.addPersonRecord();
+
+                PatientRecord patient = patientList.addPatientRecord();
+
+                newPer.setPersonId(patientID);
+                newPer.setPersonName(patientName);
+                newPer.setPersonCommunity(patientComm);
+                newPer.setPersonCity(patientCity);
+                newPer.setPincode(patientPincode);
+
+                patient.setPersonId(patientID);
+                patient.setPersonName(patientName);
+
+                Encounter newEncounter = patient.addEncounters();
+
+                newEncounter.setBeats(patientHeartRate);
+                newEncounter.setBreathing(patientBreathing);
+                newEncounter.setDateTaken(patientEncounterDateTaken);
+                newEncounter.setDiastolicPressure(patientDiaPressure);
+                newEncounter.setSystolicPressure(patientSysPressure);
+                newEncounter.setTemperature(patientTemperature);
 
                 lblWarningCity.setVisible(false);
                 lblWarningComm.setVisible(false);
                 lblWarningPatID.setVisible(false);
                 lblWarningPatName.setVisible(false);
                 lblWarningPincode.setVisible(false);
+
+                lblWarningDate.setVisible(false);
+                lblWarningDiaPressure.setVisible(false);
+                lblWarningBreathing.setVisible(false);
+                lblWarningHeartBeat.setVisible(false);
+                lblWarningTemperature.setVisible(false);
+                lblWarningSysPressure.setVisible(false);
 
                 JOptionPane.showMessageDialog(this, "New Patient Records Added");
 
@@ -396,30 +711,155 @@ public class AddPatientPanel extends javax.swing.JPanel {
                 txtPatientID.setText("");
                 txtPatientName.setText("");
                 txtPatientPincode.setText("");
-                
-                
+
+                txtBreathing.setText("");
+                txtDateTaken.setText("");
+                txtDiaPressure.setText("");
+                txtHeartBeat.setText("");
+                txtSysPressure.setText("");
+                txtTemperature.setText("");
+
+                boolean checkPatientExistsInPatientList1 = patientList.searchPersonByPatientID(patientID);
+                System.out.println(checkPatientExistsInPatientList1 + " in patient list(AddPatientPanel)");
+
+                boolean checkPersonExistInPersonList1 = personList.searchPersonByPatientID(patientID);
+                System.out.println(checkPersonExistInPersonList1 + " in Person list (AddPatientPanel)");
             }
         }
     }//GEN-LAST:event_btnAddPatientActionPerformed
+
+    private void txtDiaPressureFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDiaPressureFocusLost
+        // TODO add your handling code here:
+        patientDiaPressure = checkDiastolicPressure(txtDiaPressure.getText());
+        if (txtDiaPressure.getText().isEmpty()) {
+            lblWarningDiaPressure.setVisible(false);
+        } else {
+            if (patientDiaPressure == 0) {
+                txtPatientID.setText("");
+                lblWarningDiaPressure.setVisible(true);
+            } else {
+                lblWarningDiaPressure.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_txtDiaPressureFocusLost
+
+    private void txtBreathingFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBreathingFocusLost
+        // TODO add your handling code here:
+        patientBreathing = checkBreathing(txtBreathing.getText());
+        if (txtBreathing.getText().isEmpty()) {
+            lblWarningBreathing.setVisible(false);
+        } else {
+            if (patientBreathing == 0) {
+                txtBreathing.setText("");
+                lblWarningBreathing.setVisible(true);
+            } else {
+                lblWarningBreathing.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_txtBreathingFocusLost
+
+    private void txtHeartBeatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeartBeatFocusLost
+        // TODO add your handling code here:
+        patientHeartRate = checkHeartBeat(txtHeartBeat.getText());
+        if (txtHeartBeat.getText().isEmpty()) {
+            lblWarningHeartBeat.setVisible(false);
+        } else {
+            if (patientHeartRate == 0) {
+                txtHeartBeat.setText("");
+                lblWarningHeartBeat.setVisible(true);
+            } else {
+                lblWarningHeartBeat.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_txtHeartBeatFocusLost
+
+    private void txtTemperatureFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTemperatureFocusLost
+        // TODO add your handling code here:
+        patientTemperature = checkTemperature(txtTemperature.getText());
+        if (txtTemperature.getText().isEmpty()) {
+            lblWarningTemperature.setVisible(false);
+        } else {
+            if (patientTemperature == 0.0) {
+                txtTemperature.setText(String.valueOf(patientTemperature));
+                lblWarningTemperature.setVisible(true);
+            } else {
+                lblWarningTemperature.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_txtTemperatureFocusLost
+
+    private void txtDateTakenFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDateTakenFocusLost
+        // TODO add your handling code here:
+        String typedEncounterDate = txtDateTaken.getText();
+        patientEncounterDateTaken = checkDateTaken(typedEncounterDate);
+        if (typedEncounterDate.isEmpty()) {
+            lblWarningDate.setVisible(false);
+        } else {
+            if (isDateValid) {
+                lblWarningDate.setVisible(false);
+            } else {
+                //                txtDateTaken.setText("");
+                lblWarningDate.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_txtDateTakenFocusLost
+
+    private void txtDateTakenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateTakenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateTakenActionPerformed
+
+    private void txtSysPressureFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSysPressureFocusLost
+        // TODO add your handling code here:
+        patientSysPressure = checkSystolicPressure(txtSysPressure.getText());
+        if (txtSysPressure.getText().isEmpty()) {
+            lblWarningSysPressure.setVisible(false);
+        } else {
+            if (patientSysPressure == 0) {
+                txtSysPressure.setText("");
+                lblWarningSysPressure.setVisible(true);
+            } else {
+                lblWarningSysPressure.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_txtSysPressureFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddPatient;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblBreathing;
+    private javax.swing.JLabel lblDateTaken;
+    private javax.swing.JLabel lblDiaPressure;
+    private javax.swing.JLabel lblEncounterTitle;
+    private javax.swing.JLabel lblHeartBeat;
     private javax.swing.JLabel lblPatienCity;
     private javax.swing.JLabel lblPatientComm;
     private javax.swing.JLabel lblPatientId;
     private javax.swing.JLabel lblPatientName;
     private javax.swing.JLabel lblPatientPincode;
+    private javax.swing.JLabel lblSysPressure;
+    private javax.swing.JLabel lblTemperature;
+    private javax.swing.JLabel lblWarningBreathing;
     private javax.swing.JLabel lblWarningCity;
     private javax.swing.JLabel lblWarningComm;
+    private javax.swing.JLabel lblWarningDate;
+    private javax.swing.JLabel lblWarningDiaPressure;
+    private javax.swing.JLabel lblWarningHeartBeat;
     private javax.swing.JLabel lblWarningPatID;
     private javax.swing.JLabel lblWarningPatName;
     private javax.swing.JLabel lblWarningPincode;
+    private javax.swing.JLabel lblWarningSysPressure;
+    private javax.swing.JLabel lblWarningTemperature;
+    private javax.swing.JTextField txtBreathing;
+    private javax.swing.JTextField txtDateTaken;
+    private javax.swing.JTextField txtDiaPressure;
+    private javax.swing.JTextField txtHeartBeat;
     private javax.swing.JTextField txtPatientCity;
     private javax.swing.JTextField txtPatientComm;
     private javax.swing.JTextField txtPatientID;
     private javax.swing.JTextField txtPatientName;
     private javax.swing.JTextField txtPatientPincode;
+    private javax.swing.JTextField txtSysPressure;
+    private javax.swing.JTextField txtTemperature;
     // End of variables declaration//GEN-END:variables
 }

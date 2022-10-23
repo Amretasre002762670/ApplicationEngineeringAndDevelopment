@@ -3,7 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="66" red="ff" type="rgb"/>
+      <Color blue="cc" green="ff" red="0" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -28,14 +28,20 @@
                       <Component id="jLabel1" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="lblPatientPincode" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblPatienCity" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblPatientComm" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblPatientName" alignment="0" pref="126" max="32767" attributes="0"/>
-                          <Component id="lblPatientId" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPatientPincode" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPatienCity" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPatientComm" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPatientName" linkSize="3" alignment="0" pref="126" max="32767" attributes="0"/>
+                          <Component id="lblPatientId" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblTemperature" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblHeartBeat" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblBreathing" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblDiaPressure" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblSysPressure" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblDateTaken" linkSize="3" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -60,14 +66,39 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblWarningPatID" linkSize="2" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnAddPatient" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txtPatientCity" min="-2" pref="159" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblWarningCity" linkSize="2" min="-2" pref="131" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtSysPressure" pref="159" max="32767" attributes="0"/>
+                                  <Component id="txtDiaPressure" pref="159" max="32767" attributes="0"/>
+                                  <Component id="txtBreathing" pref="159" max="32767" attributes="0"/>
+                                  <Component id="txtHeartBeat" pref="159" max="32767" attributes="0"/>
+                                  <Component id="txtTemperature" pref="159" max="32767" attributes="0"/>
+                                  <Component id="txtDateTaken" pref="159" max="32767" attributes="0"/>
+                                  <Component id="btnAddPatient" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblWarningHeartBeat" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblWarningBreathing" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblWarningDiaPressure" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblWarningSysPressure" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="lblWarningDate" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <Component id="lblWarningTemperature" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="lblEncounterTitle" min="-2" pref="159" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -108,9 +139,47 @@
                   <Component id="lblWarningPincode" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPatientPincode" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Component id="lblEncounterTitle" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtSysPressure" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWarningSysPressure" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSysPressure" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtDiaPressure" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWarningDiaPressure" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDiaPressure" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtBreathing" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWarningBreathing" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblBreathing" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtHeartBeat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWarningHeartBeat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHeartBeat" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWarningTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtDateTaken" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWarningDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDateTaken" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAddPatient" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -122,7 +191,7 @@
           <Font name="Helvetica Neue" size="18" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="ff" red="0" type="rgb"/>
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Add New Patient Details!"/>
@@ -143,6 +212,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPatientPincode">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Pincode:"/>
       </Properties>
     </Component>
@@ -161,16 +234,28 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPatientId">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Patient ID:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPatientName">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Patient Name:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPatientComm">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Community:"/>
       </Properties>
     </Component>
@@ -191,6 +276,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAddPatient">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Add Patient Record"/>
       </Properties>
       <Events>
@@ -223,7 +311,152 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPatienCity">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="City:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDiaPressure">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Diastolic Pressure:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtDiaPressure">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDiaPressureFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWarningDiaPressure">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Invalid!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblBreathing">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Breathing"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtBreathing">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtBreathingFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWarningBreathing">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Invalid!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblHeartBeat">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Heart Beats:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtHeartBeat">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtHeartBeatFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWarningHeartBeat">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Invalid!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWarningTemperature">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Invalid!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtTemperature">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtTemperatureFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSysPressure">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Systolic Pressure:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTemperature">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Temperature:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDateTaken">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Date Taken: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtDateTaken">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDateTakenFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDateTakenActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSysPressure">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSysPressureFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWarningSysPressure">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Invalid!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWarningDate">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Invalid Date!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEncounterTitle">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Add Encounter Details"/>
       </Properties>
     </Component>
   </SubComponents>

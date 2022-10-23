@@ -56,9 +56,4 @@ public class Person {
         this.pincode = pincode;
     }
 
-    
-    
-    
-    
-    
 }

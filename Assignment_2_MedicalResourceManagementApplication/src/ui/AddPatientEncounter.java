@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import model.Encounter;
+import model.EncounterHistory;
 import model.PatientRecord;
 import model.PatientRecordList;
 import model.Person;
@@ -101,11 +102,12 @@ public class AddPatientEncounter extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 255, 204));
 
-        lblAddEncounterTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lblAddEncounterTitle.setForeground(new java.awt.Color(153, 0, 51));
+        lblAddEncounterTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblAddEncounterTitle.setForeground(new java.awt.Color(255, 0, 204));
         lblAddEncounterTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddEncounterTitle.setText("Add Patient Encounter!");
 
+        lblSearchType.setForeground(new java.awt.Color(255, 0, 204));
         lblSearchType.setText("Search Patient By:");
 
         buttonGroup1.add(rdBtnPatientId);
@@ -124,8 +126,10 @@ public class AddPatientEncounter extends javax.swing.JPanel {
             }
         });
 
+        lblSearchBox.setForeground(new java.awt.Color(255, 0, 204));
         lblSearchBox.setText("Search");
 
+        btnSearchPatient.setForeground(new java.awt.Color(0, 153, 153));
         btnSearchPatient.setText("Search Patient");
         btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +143,8 @@ public class AddPatientEncounter extends javax.swing.JPanel {
         lblWarningDate.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningDate.setText("Invalid Date!");
 
+        lblDiaPressure.setForeground(new java.awt.Color(255, 0, 204));
+        lblDiaPressure.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDiaPressure.setText("Diastolic Pressure:");
 
         txtDiaPressure.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -150,6 +156,8 @@ public class AddPatientEncounter extends javax.swing.JPanel {
         lblWarningDiaPressure.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningDiaPressure.setText("Invalid!");
 
+        lblBreathing.setForeground(new java.awt.Color(255, 0, 204));
+        lblBreathing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBreathing.setText("Breathing");
 
         txtBreathing.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -161,6 +169,8 @@ public class AddPatientEncounter extends javax.swing.JPanel {
         lblWarningBreathing.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningBreathing.setText("Invalid!");
 
+        lblHeartBeat.setForeground(new java.awt.Color(255, 0, 204));
+        lblHeartBeat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeartBeat.setText("Heart Beats:");
 
         txtHeartBeat.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -172,11 +182,15 @@ public class AddPatientEncounter extends javax.swing.JPanel {
         lblWarningHeartBeat.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningHeartBeat.setText("Invalid!");
 
+        lblPatientId.setForeground(new java.awt.Color(255, 0, 204));
+        lblPatientId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPatientId.setText("Patient ID:");
 
         lblWarningTemperature.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningTemperature.setText("Invalid!");
 
+        lblPatientName.setForeground(new java.awt.Color(255, 0, 204));
+        lblPatientName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPatientName.setText("Patient Name:");
 
         txtTemperature.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -185,10 +199,16 @@ public class AddPatientEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblSysPressure.setText("Systoic Pressure:");
+        lblSysPressure.setForeground(new java.awt.Color(255, 0, 204));
+        lblSysPressure.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSysPressure.setText("Systolic Pressure:");
 
+        lblTemperature.setForeground(new java.awt.Color(255, 0, 204));
+        lblTemperature.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTemperature.setText("Temperature:");
 
+        lblDateTaken.setForeground(new java.awt.Color(255, 0, 204));
+        lblDateTaken.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDateTaken.setText("Date Taken: ");
 
         txtDateTaken.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -220,6 +240,7 @@ public class AddPatientEncounter extends javax.swing.JPanel {
             }
         });
 
+        btnAddRecord.setForeground(new java.awt.Color(0, 153, 153));
         btnAddRecord.setText("Add Record");
         btnAddRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,6 +248,7 @@ public class AddPatientEncounter extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 0, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add Encounter Details!");
 
@@ -351,7 +373,7 @@ public class AddPatientEncounter extends javax.swing.JPanel {
                     .addComponent(lblWarningDate))
                 .addGap(18, 18, 18)
                 .addComponent(btnAddRecord)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -473,13 +495,13 @@ public class AddPatientEncounter extends javax.swing.JPanel {
     private void btnSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPatientActionPerformed
         // TODO add your handling code here:
         boolean searchResult;
-        Person searchPersonResult = new Person();
+        PatientRecord searchPatientResult = new PatientRecord();
         if (buttonGroup1.getSelection().getActionCommand().equals("Patient ID")) {
-            searchResult = personList.searchPersonByPatientID(Long.parseLong(txtSearchField.getText()));
+            searchResult = patientList.searchPersonByPatientID(Long.parseLong(txtSearchField.getText()));
             if (searchResult) {
-                searchPersonResult = personList.getPersonDetailsWithPatientId(Long.parseLong(txtSearchField.getText()));
-                txtPatientID.setText(String.valueOf(searchPersonResult.getPersonId()));
-                txtPatientName.setText(searchPersonResult.getPersonName());
+                searchPatientResult = patientList.getPersonDetailsWithPatientId(Long.parseLong(txtSearchField.getText()));
+                txtPatientID.setText(String.valueOf(searchPatientResult.getPersonId()));
+                txtPatientName.setText(searchPatientResult.getPersonName());
 
                 txtSearchField.setText("");
 
@@ -488,17 +510,16 @@ public class AddPatientEncounter extends javax.swing.JPanel {
                 txtSearchField.setText("");
             }
         } else if (buttonGroup1.getSelection().getActionCommand().equals("Patient Name")) {
-            searchResult = personList.searchPersonByPatientName(txtSearchField.getText());
+            searchResult = patientList.searchPersonByPatientName(txtSearchField.getText());
             if (searchResult) {
-                searchPersonResult = personList.getPersonDetailsWithPatientName(txtSearchField.getText());
-                txtPatientID.setText(String.valueOf(searchPersonResult.getPersonId()));
-                System.out.println(searchPersonResult.getPersonId() + "In AddPatientEncounter");
-                txtPatientName.setText(searchPersonResult.getPersonName());
+                searchPatientResult = patientList.getPersonDetailsWithPatientName(txtSearchField.getText());
+                txtPatientID.setText(String.valueOf(searchPatientResult.getPersonId()));
+                txtPatientName.setText(searchPatientResult.getPersonName());
 
                 txtSearchField.setText("");
 
             } else {
-                JOptionPane.showMessageDialog(this, "No patient records found. Create Patient Records First");
+                JOptionPane.showMessageDialog(this, "No patient records found. Create Patient Record First");
                 txtSearchField.setText("");
             }
         }
@@ -615,24 +636,24 @@ public class AddPatientEncounter extends javax.swing.JPanel {
                 || txtSysPressure.getText().isEmpty() || txtTemperature.getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(this, "All fields are mandatory");
+
         } else {
 
             patientID = Long.parseLong(txtPatientID.getText());
             patientName = txtPatientName.getText();
-
-            PatientRecord patRecord = patientList.addPatientRecord();
-
-            Encounter newEncounter = patRecord.addEncounter();
-
+            
+            PatientRecord patient = patientList.getPersonDetailsWithPatientId(patientID);
+            
+            Encounter newEncounter = patient.addEncounters();
+            
             newEncounter.setBeats(patientHeartRate);
             newEncounter.setBreathing(patientBreathing);
             newEncounter.setDateTaken(patientEncounterDateTaken);
             newEncounter.setDiastolicPressure(patientDiaPressure);
             newEncounter.setSystolicPressure(patientSysPressure);
             newEncounter.setTemperature(patientTemperature);
-
-            patRecord.setPatientId(patientID);
-            patRecord.setPatientName(patientName);
+            
+            JOptionPane.showMessageDialog(this, "Added encounter to existing patient");
 
             lblWarningDate.setVisible(false);
             lblWarningDiaPressure.setVisible(false);
@@ -640,8 +661,6 @@ public class AddPatientEncounter extends javax.swing.JPanel {
             lblWarningHeartBeat.setVisible(false);
             lblWarningTemperature.setVisible(false);
             lblWarningSysPressure.setVisible(false);
-
-            JOptionPane.showMessageDialog(this, "Vital Signs added!");
 
             txtBreathing.setText("");
             txtDateTaken.setText("");

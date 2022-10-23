@@ -206,7 +206,11 @@ public class UserLoginWindow extends javax.swing.JPanel {
         // TODO add your handling code here:
         password = txtPassword.getText();
         
-        Person person = prsnList.addPersonAddressDetails();
+        Person person = new Person();
+        person.setPersonId(userID);
+        person.setPincode(pincode);
+        
+        Person newPerson = prsnList.addPersonAddressDetails(person);
         
         if(userID == 0 || emailID.isEmpty() || password.isEmpty() ||  pincode == 0) {
             

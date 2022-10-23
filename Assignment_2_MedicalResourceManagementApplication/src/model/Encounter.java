@@ -63,6 +63,10 @@ public class Encounter {
     public void setDateTaken(String dateTaken) {
         this.dateTaken = dateTaken;
     }
-
+    
+    @Override    
+    public String toString() { 
+        return dateTaken; 
+    }
     
 }

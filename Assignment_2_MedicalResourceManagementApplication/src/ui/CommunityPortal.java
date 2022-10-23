@@ -330,7 +330,6 @@ public class CommunityPortal extends javax.swing.JPanel {
             txtPincode.setText("");
             txtHosHelpline.setText("");
             
-            System.out.println(hosList.checkHospitalListSize());
         }
     }//GEN-LAST:event_btnAddHospitalActionPerformed
 

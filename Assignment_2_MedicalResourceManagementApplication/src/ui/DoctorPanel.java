@@ -46,19 +46,26 @@ public class DoctorPanel extends javax.swing.JPanel {
         btnNewPatient = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(102, 102, 255));
+        setBackground(new java.awt.Color(0, 255, 204));
 
+        lblTitle.setBackground(new java.awt.Color(255, 0, 255));
         lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 0, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Doctors Panel!");
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        jPanel1.setBackground(new java.awt.Color(204, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 0, 204));
 
         btnView.setText("View All");
 
         btnSearch.setText("Search Record");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         btnAddRecord.setText("Add Existing Record");
         btnAddRecord.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +115,7 @@ public class DoctorPanel extends javax.swing.JPanel {
 
         splitPane.setTopComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 0));
+        jPanel2.setBackground(new java.awt.Color(0, 255, 204));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -156,6 +163,12 @@ public class DoctorPanel extends javax.swing.JPanel {
         AddPatientPanel addPatientPanel = new AddPatientPanel(patientRecordList, personList);
         splitPane.setBottomComponent(addPatientPanel);
     }//GEN-LAST:event_btnNewPatientActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        ViewPatientPanel viewEncounterRecord = new ViewPatientPanel(patientRecordList, patientRecord, personList);
+        splitPane.setBottomComponent(viewEncounterRecord);
+    }//GEN-LAST:event_btnSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
