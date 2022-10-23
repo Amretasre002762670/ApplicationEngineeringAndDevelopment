@@ -23,7 +23,6 @@ public class MainJFrame extends javax.swing.JFrame {
     HospitalList hspList;
     PatientRecord patientRecord;
     PatientRecordList patientRecordList;
-    PatientRecordList fullPatientRecord;
     
     public MainJFrame() {
         initComponents();
@@ -31,7 +30,6 @@ public class MainJFrame extends javax.swing.JFrame {
         this.hspList = new HospitalList();
         this.patientRecord = new PatientRecord();
         this.patientRecordList = new PatientRecordList();
-//        this.fullPatientRecord = new PatientRecordList(prsnList);
     }
 
     /**
@@ -71,6 +69,11 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         btnSystemAdmin.setText("System Admin");
+        btnSystemAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSystemAdminActionPerformed(evt);
+            }
+        });
 
         btnCommAdmin.setText("Community Admin");
         btnCommAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -84,13 +87,13 @@ public class MainJFrame extends javax.swing.JFrame {
         loginOptionsLayout.setHorizontalGroup(
             loginOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginOptionsLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(loginOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUserLogin)
                     .addComponent(btnDoctorLogin)
                     .addComponent(btnSystemAdmin)
                     .addComponent(btnCommAdmin))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         loginOptionsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCommAdmin, btnDoctorLogin, btnSystemAdmin, btnUserLogin});
@@ -98,7 +101,7 @@ public class MainJFrame extends javax.swing.JFrame {
         loginOptionsLayout.setVerticalGroup(
             loginOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginOptionsLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
+                .addGap(247, 247, 247)
                 .addComponent(btnUserLogin)
                 .addGap(100, 100, 100)
                 .addComponent(btnDoctorLogin)
@@ -106,7 +109,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnSystemAdmin)
                 .addGap(100, 100, 100)
                 .addComponent(btnCommAdmin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(293, Short.MAX_VALUE))
         );
 
         splitPane.setTopComponent(loginOptions);
@@ -160,8 +163,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
         // TODO add your handling code here:
-        UserPanel userPanel = new UserPanel(prsnList, hspList);
-        splitPane.setRightComponent(userPanel);
+        SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hspList, "User Login");
+        splitPane.setRightComponent(searchHospitals);
     }//GEN-LAST:event_btnUserLoginActionPerformed
 
     private void btnCommAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommAdminActionPerformed
@@ -175,6 +178,12 @@ public class MainJFrame extends javax.swing.JFrame {
         DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList, prsnList );
         splitPane.setRightComponent(doctorPanel);
     }//GEN-LAST:event_btnDoctorLoginActionPerformed
+
+    private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
+        // TODO add your handling code here:
+        SystemAdminPanel systemAdminPanel = new SystemAdminPanel(patientRecord, patientRecordList, prsnList, hspList);
+        splitPane.setBottomComponent(systemAdminPanel);
+    }//GEN-LAST:event_btnSystemAdminActionPerformed
 
     /**
      * @param args the command line arguments

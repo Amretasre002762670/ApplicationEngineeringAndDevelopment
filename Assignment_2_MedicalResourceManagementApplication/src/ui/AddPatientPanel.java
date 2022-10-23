@@ -722,6 +722,11 @@ public class AddPatientPanel extends javax.swing.JPanel {
                 txtHeartBeat.setText("");
                 txtSysPressure.setText("");
                 txtTemperature.setText("");
+                
+                 boolean çheck = patientList.searchPersonByPatientID(patientID);
+                 System.out.println("the patient exit(AdPatientPanel) " + çheck);
+                 
+                
 
             }
         }

@@ -130,14 +130,16 @@ public class CommunityPortal extends javax.swing.JPanel {
         lblWarningPincode = new javax.swing.JLabel();
         lblWarningHelpline = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(0, 255, 204));
 
-        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 0, 255));
+        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 0, 153));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Add New Hospitals in the Community!");
 
-        lblHospitalName.setForeground(new java.awt.Color(0, 51, 255));
+        lblHospitalName.setBackground(new java.awt.Color(255, 0, 153));
+        lblHospitalName.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblHospitalName.setForeground(new java.awt.Color(255, 0, 153));
         lblHospitalName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHospitalName.setText("Hospital Name:");
 
@@ -147,7 +149,9 @@ public class CommunityPortal extends javax.swing.JPanel {
             }
         });
 
-        lblCommunity.setForeground(new java.awt.Color(0, 0, 255));
+        lblCommunity.setBackground(new java.awt.Color(255, 0, 153));
+        lblCommunity.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblCommunity.setForeground(new java.awt.Color(255, 0, 153));
         lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCommunity.setText("Community:");
 
@@ -157,7 +161,9 @@ public class CommunityPortal extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel1.setBackground(new java.awt.Color(255, 0, 153));
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("City:");
 
@@ -172,7 +178,9 @@ public class CommunityPortal extends javax.swing.JPanel {
             }
         });
 
-        lblPincode.setForeground(new java.awt.Color(51, 51, 255));
+        lblPincode.setBackground(new java.awt.Color(255, 0, 153));
+        lblPincode.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblPincode.setForeground(new java.awt.Color(255, 0, 153));
         lblPincode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPincode.setText("Pincode");
 
@@ -187,7 +195,9 @@ public class CommunityPortal extends javax.swing.JPanel {
             }
         });
 
-        lblHosHelpline.setForeground(new java.awt.Color(0, 0, 255));
+        lblHosHelpline.setBackground(new java.awt.Color(255, 0, 153));
+        lblHosHelpline.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblHosHelpline.setForeground(new java.awt.Color(255, 0, 153));
         lblHosHelpline.setText("Hospital Helpline:");
 
         txtHosHelpline.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -224,36 +234,33 @@ public class CommunityPortal extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblHosHelpline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblHospitalName, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAddHospital)
-                            .addComponent(txtPincode, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(txtCity)
-                            .addComponent(txtCommunity)
-                            .addComponent(txtHospitalName)
-                            .addComponent(txtHosHelpline))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblWarningHosName, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(lblWarningCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblWarningCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblWarningPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblWarningHelpline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHosHelpline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblHospitalName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddHospital)
+                    .addComponent(txtPincode)
+                    .addComponent(txtCity)
+                    .addComponent(txtCommunity)
+                    .addComponent(txtHospitalName)
+                    .addComponent(txtHosHelpline, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblWarningHosName, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(lblWarningCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblWarningCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblWarningPincode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblWarningHelpline, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblWarningCommunity, lblWarningHosName});
@@ -261,9 +268,9 @@ public class CommunityPortal extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addComponent(lblTitle)
-                .addGap(40, 40, 40)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHospitalName)
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,7 +297,7 @@ public class CommunityPortal extends javax.swing.JPanel {
                     .addComponent(lblWarningHelpline))
                 .addGap(48, 48, 48)
                 .addComponent(btnAddHospital)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

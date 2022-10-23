@@ -189,6 +189,11 @@ public class ViewPersonPanel extends javax.swing.JPanel {
         });
 
         btnDeleteDetails.setText("Delete");
+        btnDeleteDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteDetailsActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 153));
@@ -504,6 +509,25 @@ public class ViewPersonPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         lblWarningPatID.setVisible(true);
     }//GEN-LAST:event_txtPatientIDFocusGained
+
+    private void btnDeleteDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDetailsActionPerformed
+        // TODO add your handling code here:
+        int personInd = tblViewPatientRecords.getSelectedRow();
+
+        if (personInd < 0) {
+            //if there is no row selected then a dialog is displayed
+            JOptionPane.showMessageDialog(this, "Select the Hospital to be Deleted.");
+            return;
+        }
+
+        DefaultTableModel personTable = (DefaultTableModel) tblViewPatientRecords.getModel();
+
+        Person selectedPerson = (Person) personTable.getValueAt(personInd, 1);
+
+        personList.removePersonDetails(selectedPerson);
+
+        populateTableWithPersonRecords();
+    }//GEN-LAST:event_btnDeleteDetailsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

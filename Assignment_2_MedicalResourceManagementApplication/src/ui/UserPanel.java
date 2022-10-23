@@ -42,12 +42,13 @@ public class UserPanel extends javax.swing.JPanel {
         rightPanel = new javax.swing.JPanel();
 
         lblUserTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblUserTitle.setForeground(new java.awt.Color(255, 0, 153));
         lblUserTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUserTitle.setText("User Panel");
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        leftPanel.setBackground(new java.awt.Color(255, 255, 0));
+        leftPanel.setBackground(new java.awt.Color(255, 0, 204));
 
         jButton1.setForeground(new java.awt.Color(0, 153, 51));
         jButton1.setText("Add User");
@@ -91,7 +92,7 @@ public class UserPanel extends javax.swing.JPanel {
 
         splitPane.setTopComponent(leftPanel);
 
-        rightPanel.setBackground(new java.awt.Color(51, 255, 0));
+        rightPanel.setBackground(new java.awt.Color(0, 255, 204));
 
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
         rightPanel.setLayout(rightPanelLayout);
@@ -128,17 +129,17 @@ public class UserPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        UserLoginWindow userLogin = new UserLoginWindow(prsnList);
-        splitPane.setBottomComponent(userLogin);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hosList, "User Login");
         splitPane.setBottomComponent(searchHospitals);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        UserLoginWindow userLogin = new UserLoginWindow(prsnList);
+        splitPane.setBottomComponent(userLogin);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -100,5 +100,9 @@ public class PersonList {
         }
         return selectedPerson;
     }
+    
+    public void removePersonDetails(Person personRemove) {
+        userList.remove(personRemove);
+    }
 
 }

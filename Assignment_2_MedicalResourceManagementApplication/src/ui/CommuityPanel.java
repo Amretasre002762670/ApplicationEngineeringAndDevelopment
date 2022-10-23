@@ -39,16 +39,20 @@ public class CommuityPanel extends javax.swing.JPanel {
         btnViewHospitals = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(0, 255, 204));
 
-        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblTitle.setBackground(new java.awt.Color(0, 255, 204));
+        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 0, 153));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Community Portal! Only Community Admin can use it!");
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        optionsPanel.setBackground(new java.awt.Color(255, 153, 255));
+        optionsPanel.setBackground(new java.awt.Color(255, 0, 204));
 
+        btnAddHospital.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnAddHospital.setForeground(new java.awt.Color(0, 102, 102));
         btnAddHospital.setText("Add Hospital");
         btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +60,8 @@ public class CommuityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearchHospitals.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnSearchHospitals.setForeground(new java.awt.Color(0, 102, 102));
         btnSearchHospitals.setText("Search Hospitals");
         btnSearchHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +69,8 @@ public class CommuityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewHospitals.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnViewHospitals.setForeground(new java.awt.Color(0, 102, 102));
         btnViewHospitals.setText("View Hospitals");
         btnViewHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,9 +85,9 @@ public class CommuityPanel extends javax.swing.JPanel {
             .addGroup(optionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddHospital)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(btnSearchHospitals)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(btnViewHospitals)
                 .addContainerGap())
         );
@@ -99,7 +107,7 @@ public class CommuityPanel extends javax.swing.JPanel {
 
         splitPane.setTopComponent(optionsPanel);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 255, 204));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,15 +129,15 @@ public class CommuityPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(splitPane))
+                    .addComponent(splitPane)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitle)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(splitPane)
                 .addContainerGap())
