@@ -18,12 +18,11 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    
     PersonList prsnList;
     HospitalList hspList;
     PatientRecord patientRecord;
     PatientRecordList patientRecordList;
-    
+
     public MainJFrame() {
         initComponents();
         this.prsnList = new PersonList();
@@ -131,7 +130,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 255));
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 2, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Medical Resource Management Application");
 
@@ -163,26 +162,30 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
         // TODO add your handling code here:
-        SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hspList, "User Login");
-        splitPane.setRightComponent(searchHospitals);
+        UserLoginPanel userLoginPanel = new UserLoginPanel(splitPane, hspList);
+//        SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hspList, "User Login");
+        splitPane.setRightComponent(userLoginPanel);
     }//GEN-LAST:event_btnUserLoginActionPerformed
 
     private void btnCommAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommAdminActionPerformed
         // TODO add your handling code here:
-        CommuityPanel commPanel = new CommuityPanel(hspList);
-        splitPane.setRightComponent(commPanel);      
+        CommunityLoginPanel commLoginPanel = new CommunityLoginPanel(splitPane, hspList);
+//        CommuityPanel commPanel = new CommuityPanel(hspList);
+        splitPane.setRightComponent(commLoginPanel);
     }//GEN-LAST:event_btnCommAdminActionPerformed
 
     private void btnDoctorLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorLoginActionPerformed
         // TODO add your handling code here:
-        DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList, prsnList );
-        splitPane.setRightComponent(doctorPanel);
+        DoctorLoginPanel doctorLoginPanel = new DoctorLoginPanel(splitPane, patientRecord, patientRecordList, prsnList);
+//        DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList, prsnList);
+        splitPane.setRightComponent(doctorLoginPanel);
     }//GEN-LAST:event_btnDoctorLoginActionPerformed
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        SystemAdminPanel systemAdminPanel = new SystemAdminPanel(patientRecord, patientRecordList, prsnList, hspList);
-        splitPane.setBottomComponent(systemAdminPanel);
+        SystemLoginPanel systemLoginPanel = new SystemLoginPanel(splitPane, patientRecord, patientRecordList, prsnList, hspList );
+//        SystemAdminPanel systemAdminPanel = new SystemAdminPanel(patientRecord, patientRecordList, prsnList, hspList);
+        splitPane.setBottomComponent(systemLoginPanel);
     }//GEN-LAST:event_btnSystemAdminActionPerformed
 
     /**
