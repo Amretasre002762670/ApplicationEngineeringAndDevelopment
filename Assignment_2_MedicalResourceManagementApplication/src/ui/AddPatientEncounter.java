@@ -128,7 +128,8 @@ public class AddPatientEncounter extends javax.swing.JPanel {
         lblSearchBox.setForeground(new java.awt.Color(255, 0, 204));
         lblSearchBox.setText("Search");
 
-        btnSearchPatient.setForeground(new java.awt.Color(0, 153, 153));
+        btnSearchPatient.setBackground(new java.awt.Color(204, 255, 204));
+        btnSearchPatient.setForeground(new java.awt.Color(0, 204, 0));
         btnSearchPatient.setText("Search Patient");
         btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,7 +240,8 @@ public class AddPatientEncounter extends javax.swing.JPanel {
             }
         });
 
-        btnAddRecord.setForeground(new java.awt.Color(0, 153, 153));
+        btnAddRecord.setBackground(new java.awt.Color(204, 255, 204));
+        btnAddRecord.setForeground(new java.awt.Color(0, 204, 0));
         btnAddRecord.setText("Add Record");
         btnAddRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -493,7 +495,7 @@ public class AddPatientEncounter extends javax.swing.JPanel {
 
     private void btnSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPatientActionPerformed
         // TODO add your handling code here:
-        boolean searchResult;
+        boolean searchResult; 
         PatientRecord searchPatientResult = new PatientRecord();
         if (buttonGroup1.getSelection().getActionCommand().equals("Patient ID")) {
             searchResult = patientList.searchPersonByPatientID(Long.parseLong(txtSearchField.getText()));

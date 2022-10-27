@@ -53,6 +53,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         loginOptions.setBackground(new java.awt.Color(0, 204, 204));
 
+        btnUserLogin.setBackground(new java.awt.Color(204, 255, 204));
+        btnUserLogin.setForeground(new java.awt.Color(0, 204, 51));
         btnUserLogin.setText("User");
         btnUserLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +62,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDoctorLogin.setBackground(new java.awt.Color(204, 255, 204));
+        btnDoctorLogin.setForeground(new java.awt.Color(0, 204, 51));
         btnDoctorLogin.setText("Doctor");
         btnDoctorLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +71,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnSystemAdmin.setBackground(new java.awt.Color(204, 255, 204));
+        btnSystemAdmin.setForeground(new java.awt.Color(0, 204, 51));
         btnSystemAdmin.setText("System Admin");
         btnSystemAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +80,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCommAdmin.setBackground(new java.awt.Color(204, 255, 204));
+        btnCommAdmin.setForeground(new java.awt.Color(0, 204, 51));
         btnCommAdmin.setText("Community Admin");
         btnCommAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -58,6 +58,8 @@ public class DoctorPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 204));
 
+        btnView.setBackground(new java.awt.Color(204, 255, 204));
+        btnView.setForeground(new java.awt.Color(0, 204, 51));
         btnView.setText("View All");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +67,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearch.setBackground(new java.awt.Color(204, 255, 204));
+        btnSearch.setForeground(new java.awt.Color(0, 204, 51));
         btnSearch.setText("Search Record");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +76,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAddRecord.setBackground(new java.awt.Color(204, 255, 204));
+        btnAddRecord.setForeground(new java.awt.Color(0, 204, 51));
         btnAddRecord.setText("Add Existing Record");
         btnAddRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +85,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnNewPatient.setBackground(new java.awt.Color(204, 255, 204));
+        btnNewPatient.setForeground(new java.awt.Color(0, 204, 51));
         btnNewPatient.setText("Add New Patient Record");
         btnNewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

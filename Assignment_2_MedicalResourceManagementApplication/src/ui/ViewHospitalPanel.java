@@ -55,6 +55,8 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(51, 255, 204));
 
+        tblHospitalsView.setBackground(new java.awt.Color(255, 0, 204));
+        tblHospitalsView.setForeground(new java.awt.Color(0, 255, 204));
         tblHospitalsView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -87,7 +89,8 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Hospital Details");
 
-        btnDeleteHosp.setForeground(new java.awt.Color(0, 153, 153));
+        btnDeleteHosp.setBackground(new java.awt.Color(204, 255, 204));
+        btnDeleteHosp.setForeground(new java.awt.Color(0, 204, 0));
         btnDeleteHosp.setText("Delete Details");
         btnDeleteHosp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

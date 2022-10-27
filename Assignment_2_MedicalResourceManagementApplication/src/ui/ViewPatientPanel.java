@@ -112,6 +112,8 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Patient Vital History");
 
+        btnSearchPatient.setBackground(new java.awt.Color(204, 255, 204));
+        btnSearchPatient.setForeground(new java.awt.Color(0, 204, 0));
         btnSearchPatient.setText("Search Patient");
         btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +147,8 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         lblSearchBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSearchBox.setText("Search");
 
+        tblViewEncounter.setBackground(new java.awt.Color(255, 0, 204));
+        tblViewEncounter.setForeground(new java.awt.Color(0, 255, 204));
         tblViewEncounter.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -181,6 +185,8 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         lblPatientName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPatientName.setText("Patient Name:");
 
+        btnUpdateEncounter.setBackground(new java.awt.Color(204, 255, 204));
+        btnUpdateEncounter.setForeground(new java.awt.Color(0, 204, 0));
         btnUpdateEncounter.setText("Update Vital");
         btnUpdateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +194,8 @@ public class ViewPatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDeleteEncounter.setBackground(new java.awt.Color(204, 255, 204));
+        btnDeleteEncounter.setForeground(new java.awt.Color(0, 204, 0));
         btnDeleteEncounter.setText("Delete Vital");
         btnDeleteEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,6 +292,8 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         lblWarningSysPressure.setForeground(new java.awt.Color(255, 0, 0));
         lblWarningSysPressure.setText("Invalid!");
 
+        btnSaveVitals.setBackground(new java.awt.Color(204, 255, 204));
+        btnSaveVitals.setForeground(new java.awt.Color(0, 204, 0));
         btnSaveVitals.setText("Save Vitals");
         btnSaveVitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

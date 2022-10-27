@@ -65,6 +65,8 @@ public class SystemAdminPanel extends javax.swing.JPanel {
 
         navigationPanel.setBackground(new java.awt.Color(255, 0, 204));
 
+        btnAddPatient.setBackground(new java.awt.Color(204, 255, 204));
+        btnAddPatient.setForeground(new java.awt.Color(0, 204, 51));
         btnAddPatient.setText("Add Patient");
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +74,8 @@ public class SystemAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAddEncounter.setBackground(new java.awt.Color(204, 255, 204));
+        btnAddEncounter.setForeground(new java.awt.Color(0, 204, 51));
         btnAddEncounter.setText("Add Encounter");
         btnAddEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +83,8 @@ public class SystemAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewPatient.setBackground(new java.awt.Color(204, 255, 204));
+        btnViewPatient.setForeground(new java.awt.Color(0, 204, 51));
         btnViewPatient.setText("View Patient");
         btnViewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +92,8 @@ public class SystemAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewEncounter.setBackground(new java.awt.Color(204, 255, 204));
+        btnViewEncounter.setForeground(new java.awt.Color(0, 204, 51));
         btnViewEncounter.setText("View Encounter");
         btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +101,8 @@ public class SystemAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAddHospitals.setBackground(new java.awt.Color(204, 255, 204));
+        btnAddHospitals.setForeground(new java.awt.Color(0, 204, 51));
         btnAddHospitals.setText("Add Hospitals");
         btnAddHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +110,8 @@ public class SystemAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearchHospitals.setBackground(new java.awt.Color(204, 255, 204));
+        btnSearchHospitals.setForeground(new java.awt.Color(0, 204, 51));
         btnSearchHospitals.setText("Search Hospitals");
         btnSearchHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +119,8 @@ public class SystemAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewHospitals.setBackground(new java.awt.Color(204, 255, 204));
+        btnViewHospitals.setForeground(new java.awt.Color(0, 204, 51));
         btnViewHospitals.setText("View Hospitals");
         btnViewHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

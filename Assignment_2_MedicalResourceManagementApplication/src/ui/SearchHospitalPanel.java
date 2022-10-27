@@ -110,8 +110,11 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
         });
 
         lblSearch.setForeground(new java.awt.Color(255, 0, 153));
+        lblSearch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSearch.setText("Search:");
 
+        btnSearch.setBackground(new java.awt.Color(204, 255, 204));
+        btnSearch.setForeground(new java.awt.Color(0, 204, 51));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +122,8 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
             }
         });
 
-        tblHospitalsView.setForeground(new java.awt.Color(255, 0, 153));
+        tblHospitalsView.setBackground(new java.awt.Color(255, 0, 204));
+        tblHospitalsView.setForeground(new java.awt.Color(0, 255, 204));
         tblHospitalsView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -147,6 +151,8 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHospitalsView);
 
+        btnUpdateHos.setBackground(new java.awt.Color(204, 255, 204));
+        btnUpdateHos.setForeground(new java.awt.Color(0, 204, 51));
         btnUpdateHos.setText("Update Details");
         btnUpdateHos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +187,8 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
         lblUpdateHelpline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUpdateHelpline.setText("Helpline:");
 
+        btnUpdateDetails.setBackground(new java.awt.Color(204, 255, 204));
+        btnUpdateDetails.setForeground(new java.awt.Color(0, 204, 51));
         btnUpdateDetails.setText("Update Details");
         btnUpdateDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

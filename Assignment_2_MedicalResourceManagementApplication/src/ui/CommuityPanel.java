@@ -45,14 +45,15 @@ public class CommuityPanel extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 0, 153));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Community Portal! Only Community Admin can use it!");
+        lblTitle.setText("Community Portal");
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         optionsPanel.setBackground(new java.awt.Color(255, 0, 204));
 
+        btnAddHospital.setBackground(new java.awt.Color(204, 255, 204));
         btnAddHospital.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnAddHospital.setForeground(new java.awt.Color(0, 102, 102));
+        btnAddHospital.setForeground(new java.awt.Color(0, 204, 0));
         btnAddHospital.setText("Add Hospital");
         btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,8 +61,9 @@ public class CommuityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearchHospitals.setBackground(new java.awt.Color(204, 255, 204));
         btnSearchHospitals.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnSearchHospitals.setForeground(new java.awt.Color(0, 102, 102));
+        btnSearchHospitals.setForeground(new java.awt.Color(0, 204, 0));
         btnSearchHospitals.setText("Search Hospitals");
         btnSearchHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,8 +71,9 @@ public class CommuityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewHospitals.setBackground(new java.awt.Color(204, 255, 204));
         btnViewHospitals.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnViewHospitals.setForeground(new java.awt.Color(0, 102, 102));
+        btnViewHospitals.setForeground(new java.awt.Color(0, 204, 0));
         btnViewHospitals.setText("View Hospitals");
         btnViewHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +100,7 @@ public class CommuityPanel extends javax.swing.JPanel {
         optionsPanelLayout.setVerticalGroup(
             optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(optionsPanelLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddHospital)
                     .addComponent(btnSearchHospitals)

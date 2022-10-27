@@ -46,7 +46,8 @@ public class CommunityLoginPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 255, 204));
 
-        btnLogin.setForeground(new java.awt.Color(0, 153, 51));
+        btnLogin.setBackground(new java.awt.Color(204, 255, 204));
+        btnLogin.setForeground(new java.awt.Color(0, 204, 0));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +108,7 @@ public class CommunityLoginPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(150, 150, 150)
                 .addComponent(lblTitle)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -119,9 +120,9 @@ public class CommunityLoginPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(lblWarning)
-                .addGap(30, 30, 30)
+                .addGap(31, 31, 31)
                 .addComponent(btnLogin)
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
