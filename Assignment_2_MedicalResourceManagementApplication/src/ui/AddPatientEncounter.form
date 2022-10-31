@@ -25,76 +25,80 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblSearchType" linkSize="1" min="-2" pref="121" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="rdBtnPatientId" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="rdBtnPatientName" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblSearchBox" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtSearchField" min="-2" pref="251" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblSearchType" linkSize="1" min="-2" pref="121" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="rdBtnPatientId" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                              <Component id="rdBtnPatientName" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblSearchBox" linkSize="1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtSearchField" min="-2" pref="251" max="-2" attributes="0"/>
+                                  <Component id="txtPatientID" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="txtPatientName" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="txtSysPressure" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="txtDiaPressure" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="txtBreathing" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="txtHeartBeat" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="txtTemperature" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="txtDateTaken" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtPatientID" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="txtPatientName" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="txtSysPressure" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="txtDiaPressure" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="txtBreathing" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="txtHeartBeat" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="txtTemperature" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="txtDateTaken" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                                          <Component id="btnAddRecord" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lblWarningHeartBeat" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblWarningBreathing" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblWarningDiaPressure" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="lblWarningSysPressure" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                          <Component id="lblWarningDate" min="-2" pref="95" max="-2" attributes="0"/>
-                                          <Component id="lblWarningTemperature" min="-2" pref="95" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="btnAddRecord" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblWarningHeartBeat" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblWarningBreathing" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblWarningDiaPressure" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblWarningSysPressure" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="lblWarningDate" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <Component id="lblWarningTemperature" min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="32767" attributes="0"/>
-                      <Component id="btnSearchPatient" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="lblTemperature" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblHeartBeat" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblBreathing" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblDiaPressure" alignment="0" pref="144" max="32767" attributes="0"/>
-                          <Component id="lblSysPressure" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblPatientName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblPatientId" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblDateTaken" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="lblAddEncounterTitle" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <Component id="btnSearchPatient" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="lblAddEncounterTitle" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="lblTemperature" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblHeartBeat" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblBreathing" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblDiaPressure" alignment="0" pref="144" max="32767" attributes="0"/>
+                  <Component id="lblSysPressure" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblPatientName" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblPatientId" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblDateTaken" max="32767" attributes="0"/>
+                  <Component id="lblNewAppointment" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtNewAppoinment" min="-2" pref="158" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lblWarningNxtAppt" min="-2" pref="95" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -163,9 +167,15 @@
                   <Component id="txtDateTaken" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblWarningDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNewAppointment" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNewAppoinment" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWarningNxtAppt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnAddRecord" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -256,7 +266,7 @@
     <Component class="javax.swing.JLabel" name="lblDiaPressure">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Diastolic Pressure:"/>
@@ -278,7 +288,7 @@
     <Component class="javax.swing.JLabel" name="lblBreathing">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Breathing"/>
@@ -300,7 +310,7 @@
     <Component class="javax.swing.JLabel" name="lblHeartBeat">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Heart Beats:"/>
@@ -322,7 +332,7 @@
     <Component class="javax.swing.JLabel" name="lblPatientId">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Patient ID:"/>
@@ -339,7 +349,7 @@
     <Component class="javax.swing.JLabel" name="lblPatientName">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Patient Name:"/>
@@ -353,7 +363,7 @@
     <Component class="javax.swing.JLabel" name="lblSysPressure">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Systolic Pressure:"/>
@@ -362,7 +372,7 @@
     <Component class="javax.swing.JLabel" name="lblTemperature">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Temperature:"/>
@@ -371,7 +381,7 @@
     <Component class="javax.swing.JLabel" name="lblDateTaken">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Date Taken: "/>
@@ -415,10 +425,32 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="0" red="ff" type="rgb"/>
+          <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Add Encounter Details!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNewAppointment">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Next Appointment:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNewAppoinment">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNewAppoinmentFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWarningNxtAppt">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Invalid Date!"/>
       </Properties>
     </Component>
   </SubComponents>

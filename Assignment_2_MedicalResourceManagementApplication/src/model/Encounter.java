@@ -15,6 +15,7 @@ public class Encounter {
     private int breathing;
     private int beats;
     private float temperature;
+    private String nextAppointment;
 
     public int getSystolicPressure() {
         return systolicPressure;
@@ -62,6 +63,14 @@ public class Encounter {
 
     public void setDateTaken(String dateTaken) {
         this.dateTaken = dateTaken;
+    }
+
+    public String getNextAppointment() {
+        return nextAppointment;
+    }
+
+    public void setNextAppointment(String nextAppointment) {
+        this.nextAppointment = nextAppointment;
     }
     
     @Override    
