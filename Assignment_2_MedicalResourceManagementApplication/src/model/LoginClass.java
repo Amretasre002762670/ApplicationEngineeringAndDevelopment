@@ -67,5 +67,28 @@ public class LoginClass {
         }
         return searchResult;
     }
+    
+    public ArrayList<Login> searchWithUserType(String userType) {
+        ArrayList<Login> searchResult = new ArrayList<Login>();
+        
+        for(Login user: loginList) {
+            if(user.getUserType().equals(userType)) {
+                searchResult.add(user);
+            }
+        }
+        return searchResult;
+    }
+    
+    public Login searchWithUserName(String userName) {
+        Login searchResult = new Login();
+        
+        for(Login user: loginList) {
+            if(user.getUserName().equals(userName)) {
+                searchResult = user;
+                break;
+            }
+        }
+        return searchResult;
+    }
 
 }

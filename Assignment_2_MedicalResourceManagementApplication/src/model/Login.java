@@ -38,5 +38,8 @@ public class Login {
         this.userType = userType;
     }
  
-   
+    @Override    
+    public String toString() { 
+        return userName; 
+    }
 }
