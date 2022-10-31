@@ -5,6 +5,7 @@ Hospital Management Application is built using Java Swing Framework in NetBeans.
   2. Community Admin
   3. Doctor Profile
   4. Common User Profile
+  
  The User profile is able to view the list of Doctors in specific hospitals, in the selected Community or Pincode. 
  Doctor's Panel will allow the Doctor's to add Vital Signs such as Systolic Pressure, Diastolic Pressure, Heart Rate, Breathing Rate and Temperature taken on that Date along with the date of their next consultation. 
  Hospitals in a community in Boston city is handled by the Community Admin. Community Admin's are able to add new hospitals, update the existing hospital records and delete hospital records. They are also allowed to view the patient's address details with respective to the community they handle.
