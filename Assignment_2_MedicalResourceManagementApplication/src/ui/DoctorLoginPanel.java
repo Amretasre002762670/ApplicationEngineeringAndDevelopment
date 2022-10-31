@@ -4,8 +4,12 @@
  */
 package ui;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import model.HospitalList;
+import model.Login;
+import model.LoginClass;
 import model.PatientRecord;
 import model.PatientRecordList;
 import model.PersonList;
@@ -23,13 +27,15 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
     PatientRecord patientRecord;
     PatientRecordList patientRecordList;
     PersonList prsnList;
-    
-    public DoctorLoginPanel(JSplitPane splitPane, PatientRecord patientRecord, PatientRecordList patientRecordList, PersonList prsnList) {
+    LoginClass loginList;
+
+    public DoctorLoginPanel(JSplitPane splitPane, PatientRecord patientRecord, PatientRecordList patientRecordList, PersonList prsnList, LoginClass loginList) {
         initComponents();
         this.splitPane = splitPane;
         this.patientRecord = patientRecord;
         this.patientRecordList = patientRecordList;
         this.prsnList = prsnList;
+        this.loginList = loginList;
         lblWarning.setVisible(false);
         txtPassword.setText("");
     }
@@ -138,14 +144,26 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
         // User Login- username: personadmin; password: person123
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
-        if(userName.equals("doctoradmin") && password.equals("doctor123")) {
-            DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList, prsnList );
-        splitPane.setRightComponent(doctorPanel);
+
+        Login user = new Login();
+        user.setUserName(userName);
+        user.setPassword(password);
+        user.setUserType("Doctor");
+
+        Login checkUser = loginList.searchUserLogin(user);
+
+        if (checkUser != null) {
+            DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList, prsnList);
+            splitPane.setRightComponent(doctorPanel);
+        } else if (userName.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(this, "All Fields Are Mandatory!");
         } else {
             txtUserName.setText("");
             txtPassword.setText("");
             lblWarning.setVisible(true);
-        }
+            btnLogin.setBackground(new Color(255, 153, 153));
+            btnLogin.setForeground(Color.red);
+        } 
     }//GEN-LAST:event_btnLoginActionPerformed
 
 

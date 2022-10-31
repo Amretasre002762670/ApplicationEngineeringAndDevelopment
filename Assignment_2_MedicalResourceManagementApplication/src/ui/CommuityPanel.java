@@ -5,6 +5,7 @@
 package ui;
 
 import model.HospitalList;
+import model.PersonList;
 
 /**
  *
@@ -16,10 +17,12 @@ public class CommuityPanel extends javax.swing.JPanel {
      * Creates new form CommuityPanel
      */
     HospitalList hosList;
+    PersonList prsnList;
     
-    public CommuityPanel(HospitalList hospList) {
+    public CommuityPanel(HospitalList hospList, PersonList prsnList) {
         initComponents();
         this.hosList = hospList;
+        this.prsnList = prsnList;
     }
 
     /**
@@ -37,6 +40,8 @@ public class CommuityPanel extends javax.swing.JPanel {
         btnAddHospital = new javax.swing.JButton();
         btnSearchHospitals = new javax.swing.JButton();
         btnViewHospitals = new javax.swing.JButton();
+        btnViewPerson = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 255, 204));
@@ -81,31 +86,56 @@ public class CommuityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewPerson.setBackground(new java.awt.Color(204, 255, 204));
+        btnViewPerson.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnViewPerson.setForeground(new java.awt.Color(0, 204, 102));
+        btnViewPerson.setText("View Patients Home");
+        btnViewPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPersonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(204, 255, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 204, 102));
+        jButton1.setText("Add Community Admin");
+
         javax.swing.GroupLayout optionsPanelLayout = new javax.swing.GroupLayout(optionsPanel);
         optionsPanel.setLayout(optionsPanelLayout);
         optionsPanelLayout.setHorizontalGroup(
             optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(optionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btnAddHospital)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(btnSearchHospitals)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(btnViewHospitals)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(optionsPanelLayout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(btnSearchHospitals)
+                .addGap(52, 52, 52)
+                .addComponent(btnViewHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        optionsPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddHospital, btnSearchHospitals, btnViewHospitals});
+        optionsPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddHospital, btnSearchHospitals, btnViewHospitals, btnViewPerson, jButton1});
 
         optionsPanelLayout.setVerticalGroup(
             optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(optionsPanelLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(9, Short.MAX_VALUE)
                 .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddHospital)
+                    .addComponent(jButton1)
+                    .addComponent(btnViewPerson))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearchHospitals)
                     .addComponent(btnViewHospitals))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         splitPane.setTopComponent(optionsPanel);
@@ -116,7 +146,7 @@ public class CommuityPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGap(0, 589, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,11 +195,19 @@ public class CommuityPanel extends javax.swing.JPanel {
         splitPane.setBottomComponent(viewPanel);
     }//GEN-LAST:event_btnViewHospitalsActionPerformed
 
+    private void btnViewPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPersonActionPerformed
+        // TODO add your handling code here:
+        ViewPersonPanel viewPersonDetails = new ViewPersonPanel(prsnList);
+        splitPane.setBottomComponent(viewPersonDetails);
+    }//GEN-LAST:event_btnViewPersonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnSearchHospitals;
     private javax.swing.JButton btnViewHospitals;
+    private javax.swing.JButton btnViewPerson;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel optionsPanel;

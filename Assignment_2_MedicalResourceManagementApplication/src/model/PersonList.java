@@ -36,21 +36,6 @@ public class PersonList {
         return newPerson;        
     }
 
-    //method to add new users to user list
-    public Person addPersonAddressDetails(Person newPerson) {
-        userList.add(newPerson);
-        return newPerson;
-    }
-
-    public boolean checkPersonDetailsExist(long patientId, String patientName) {
-        boolean result = false;
-        for (Person prsn : userList) {
-            result = ((prsn.getPersonId() == patientId) && (prsn.getPersonName().equals(patientName)));
-            break;
-        }
-        return result;
-    }
-
     public int checkSizePersonRecord() {
         return userList.size();
     }

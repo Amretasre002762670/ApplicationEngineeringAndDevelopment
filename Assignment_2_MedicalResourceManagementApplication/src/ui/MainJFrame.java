@@ -4,7 +4,10 @@
  */
 package ui;
 
+import model.CommunityList;
+import model.DoctorList;
 import model.HospitalList;
+import model.LoginClass;
 import model.PatientRecord;
 import model.PatientRecordList;
 import model.PersonList;
@@ -22,6 +25,9 @@ public class MainJFrame extends javax.swing.JFrame {
     HospitalList hspList;
     PatientRecord patientRecord;
     PatientRecordList patientRecordList;
+    DoctorList doctorList;
+    LoginClass loginList;
+    CommunityList commList;
 
     public MainJFrame() {
         initComponents();
@@ -29,6 +35,9 @@ public class MainJFrame extends javax.swing.JFrame {
         this.hspList = new HospitalList();
         this.patientRecord = new PatientRecord();
         this.patientRecordList = new PatientRecordList();
+        this.doctorList = new DoctorList();
+        this.loginList = new LoginClass();
+        this.commList = new CommunityList();
     }
 
     /**
@@ -96,8 +105,8 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(loginOptionsLayout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(loginOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnUserLogin)
                     .addComponent(btnDoctorLogin)
+                    .addComponent(btnUserLogin)
                     .addComponent(btnSystemAdmin)
                     .addComponent(btnCommAdmin))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -108,15 +117,15 @@ public class MainJFrame extends javax.swing.JFrame {
         loginOptionsLayout.setVerticalGroup(
             loginOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginOptionsLayout.createSequentialGroup()
-                .addGap(247, 247, 247)
-                .addComponent(btnUserLogin)
-                .addGap(100, 100, 100)
-                .addComponent(btnDoctorLogin)
-                .addGap(100, 100, 100)
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addComponent(btnSystemAdmin)
-                .addGap(100, 100, 100)
+                .addGap(230, 230, 230)
                 .addComponent(btnCommAdmin)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addComponent(btnUserLogin)
+                .addGap(230, 230, 230)
+                .addComponent(btnDoctorLogin)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         splitPane.setTopComponent(loginOptions);
@@ -170,28 +179,28 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
         // TODO add your handling code here:
-        UserLoginPanel userLoginPanel = new UserLoginPanel(splitPane, hspList);
+        UserLoginPanel userLoginPanel = new UserLoginPanel(splitPane, hspList, loginList);
 //        SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hspList, "User Login");
         splitPane.setRightComponent(userLoginPanel);
     }//GEN-LAST:event_btnUserLoginActionPerformed
 
     private void btnCommAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommAdminActionPerformed
         // TODO add your handling code here:
-        CommunityLoginPanel commLoginPanel = new CommunityLoginPanel(splitPane, hspList);
+        CommunityLoginPanel commLoginPanel = new CommunityLoginPanel(splitPane, hspList, prsnList, loginList, commList);
 //        CommuityPanel commPanel = new CommuityPanel(hspList);
         splitPane.setRightComponent(commLoginPanel);
     }//GEN-LAST:event_btnCommAdminActionPerformed
 
     private void btnDoctorLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorLoginActionPerformed
         // TODO add your handling code here:
-        DoctorLoginPanel doctorLoginPanel = new DoctorLoginPanel(splitPane, patientRecord, patientRecordList, prsnList);
+        DoctorLoginPanel doctorLoginPanel = new DoctorLoginPanel(splitPane, patientRecord, patientRecordList, prsnList, loginList);
 //        DoctorPanel doctorPanel = new DoctorPanel(patientRecord, patientRecordList, prsnList);
         splitPane.setRightComponent(doctorLoginPanel);
     }//GEN-LAST:event_btnDoctorLoginActionPerformed
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        SystemLoginPanel systemLoginPanel = new SystemLoginPanel(splitPane, patientRecord, patientRecordList, prsnList, hspList );
+        SystemLoginPanel systemLoginPanel = new SystemLoginPanel(splitPane, patientRecord, patientRecordList, prsnList, hspList, doctorList, loginList, commList);
 //        SystemAdminPanel systemAdminPanel = new SystemAdminPanel(patientRecord, patientRecordList, prsnList, hspList);
         splitPane.setBottomComponent(systemLoginPanel);
     }//GEN-LAST:event_btnSystemAdminActionPerformed

@@ -4,7 +4,11 @@
  */
 package ui;
 
+import model.CommunityList;
+import model.DoctorList;
+import model.Hospital;
 import model.HospitalList;
+import model.LoginClass;
 import model.PatientRecord;
 import model.PatientRecordList;
 import model.PersonList;
@@ -22,13 +26,19 @@ public class SystemAdminPanel extends javax.swing.JPanel {
     PatientRecordList patientList;
     PersonList personList;
     HospitalList hospitalList;
+    DoctorList doctorList;
+    LoginClass loginList;
+    CommunityList commList;
     
-    public SystemAdminPanel(PatientRecord patientRecord, PatientRecordList patientList, PersonList personList, HospitalList hospitalList) {
+    public SystemAdminPanel(PatientRecord patientRecord, PatientRecordList patientList, PersonList personList, HospitalList hospitalList, DoctorList doctorList, LoginClass loginList, CommunityList commList) {
         
         this.patientRecord = patientRecord;
         this.patientList = patientList;
         this.personList = personList;
         this.hospitalList = hospitalList;
+        this.doctorList = doctorList;
+        this.loginList = loginList;
+        this.commList = commList;
         
         initComponents();
     }
@@ -52,6 +62,8 @@ public class SystemAdminPanel extends javax.swing.JPanel {
         btnAddHospitals = new javax.swing.JButton();
         btnSearchHospitals = new javax.swing.JButton();
         btnViewHospitals = new javax.swing.JButton();
+        btnViewUserDetails = new javax.swing.JButton();
+        btnAddAdmins = new javax.swing.JButton();
         displayPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 255, 204));
@@ -128,33 +140,51 @@ public class SystemAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewUserDetails.setBackground(new java.awt.Color(204, 255, 204));
+        btnViewUserDetails.setForeground(new java.awt.Color(0, 204, 0));
+        btnViewUserDetails.setText("View User Details");
+
+        btnAddAdmins.setBackground(new java.awt.Color(204, 255, 204));
+        btnAddAdmins.setForeground(new java.awt.Color(0, 204, 0));
+        btnAddAdmins.setText("Add Admins");
+        btnAddAdmins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddAdminsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout navigationPanelLayout = new javax.swing.GroupLayout(navigationPanel);
         navigationPanel.setLayout(navigationPanelLayout);
         navigationPanelLayout.setHorizontalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(navigationPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAddPatient)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(btnAddEncounter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnViewPatient)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(btnViewEncounter)
+                .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(navigationPanelLayout.createSequentialGroup()
+                        .addComponent(btnAddPatient)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(btnAddEncounter)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(btnViewPatient)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addComponent(btnViewEncounter))
+                    .addGroup(navigationPanelLayout.createSequentialGroup()
+                        .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnAddHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                            .addComponent(btnAddAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(navigationPanelLayout.createSequentialGroup()
+                                .addGap(350, 350, 350)
+                                .addComponent(btnViewHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(navigationPanelLayout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(btnSearchHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(108, 108, 108)
+                                .addComponent(btnViewUserDetails)))))
                 .addContainerGap())
-            .addGroup(navigationPanelLayout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
-                .addComponent(btnAddHospitals)
-                .addGap(18, 18, 18)
-                .addComponent(btnSearchHospitals)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewHospitals)
-                .addGap(88, 88, 88))
         );
 
         navigationPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEncounter, btnAddPatient, btnViewEncounter, btnViewPatient});
-
-        navigationPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddHospitals, btnSearchHospitals, btnViewHospitals});
 
         navigationPanelLayout.setVerticalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,11 +195,15 @@ public class SystemAdminPanel extends javax.swing.JPanel {
                     .addComponent(btnAddEncounter)
                     .addComponent(btnViewPatient)
                     .addComponent(btnViewEncounter))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddHospitals)
-                    .addComponent(btnSearchHospitals)
                     .addComponent(btnViewHospitals))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewUserDetails)
+                    .addComponent(btnAddAdmins)
+                    .addComponent(btnSearchHospitals))
                 .addContainerGap())
         );
 
@@ -185,7 +219,7 @@ public class SystemAdminPanel extends javax.swing.JPanel {
         );
         displayPanelLayout.setVerticalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(displayPanel);
@@ -254,8 +288,15 @@ public class SystemAdminPanel extends javax.swing.JPanel {
         splitPane.setBottomComponent(viewHospitalPanel);
     }//GEN-LAST:event_btnViewHospitalsActionPerformed
 
+    private void btnAddAdminsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAdminsActionPerformed
+        // TODO add your handling code here:
+        AddAdminsPanel addAdminsPanel = new AddAdminsPanel(doctorList, hospitalList, loginList, commList, personList);
+        splitPane.setBottomComponent(addAdminsPanel);
+    }//GEN-LAST:event_btnAddAdminsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddAdmins;
     private javax.swing.JButton btnAddEncounter;
     private javax.swing.JButton btnAddHospitals;
     private javax.swing.JButton btnAddPatient;
@@ -263,6 +304,7 @@ public class SystemAdminPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnViewEncounter;
     private javax.swing.JButton btnViewHospitals;
     private javax.swing.JButton btnViewPatient;
+    private javax.swing.JButton btnViewUserDetails;
     private javax.swing.JPanel displayPanel;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel navigationPanel;

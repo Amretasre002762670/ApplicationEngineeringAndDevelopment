@@ -4,8 +4,12 @@
  */
 package ui;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import model.HospitalList;
+import model.Login;
+import model.LoginClass;
 
 /**
  *
@@ -18,10 +22,15 @@ public class UserLoginPanel extends javax.swing.JPanel {
      */
     JSplitPane splitPane;
     HospitalList hspList;
-    public UserLoginPanel(JSplitPane splitPane, HospitalList hspList) {
+    LoginClass loginList;
+            
+    public UserLoginPanel(JSplitPane splitPane, HospitalList hspList, LoginClass loginList) {
         initComponents();
+        
         this.splitPane = splitPane;
         this.hspList = hspList;
+        this.loginList = loginList;
+        
         lblWarning.setVisible(false);
         txtPassword.setText("");
     }
@@ -140,14 +149,27 @@ public class UserLoginPanel extends javax.swing.JPanel {
         // User Login- username: personadmin; password: person123
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
-        if(userName.equals("personadmin") && password.equals("person123")) {
+        
+        Login user = new Login();
+        user.setUserName(userName);
+        user.setPassword(password);
+        user.setUserType("User");
+
+        Login checkUser = loginList.searchUserLogin(user);
+
+        if (checkUser != null) {
             SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hspList, "User Login");
             splitPane.setRightComponent(searchHospitals);
+        } else if (userName.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(this, "All Fields Are Mandatory!");
         } else {
             txtUserName.setText("");
             txtPassword.setText("");
             lblWarning.setVisible(true);
-        }
+            btnLogin.setBackground(new Color(255, 153, 153));
+            btnLogin.setForeground(Color.red);
+        } 
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseReleased

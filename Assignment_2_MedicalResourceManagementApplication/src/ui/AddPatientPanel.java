@@ -648,6 +648,7 @@ public class AddPatientPanel extends javax.swing.JPanel {
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
+        
         boolean checkPatientExistsInPatientList = patientList.searchPersonByPatientID(patientID);
         boolean checkPersonExistInPersonList = personList.searchPersonByPatientID(patientID);
 
@@ -725,11 +726,6 @@ public class AddPatientPanel extends javax.swing.JPanel {
                 txtSysPressure.setText("");
                 txtTemperature.setText("");
                 
-                 boolean çheck = patientList.searchPersonByPatientID(patientID);
-                 System.out.println("the patient exit(AdPatientPanel) " + çheck);
-                 
-                
-
             }
         }
     }//GEN-LAST:event_btnAddPatientActionPerformed

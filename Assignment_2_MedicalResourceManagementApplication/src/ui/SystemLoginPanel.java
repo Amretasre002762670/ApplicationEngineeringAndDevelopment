@@ -4,8 +4,13 @@
  */
 package ui;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
+import model.CommunityList;
+import model.DoctorList;
 import model.HospitalList;
+import model.LoginClass;
 import model.PatientRecord;
 import model.PatientRecordList;
 import model.PersonList;
@@ -19,19 +24,27 @@ public class SystemLoginPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemLoginPanel
      */
+    
     JSplitPane splitPane;
     PatientRecord patientRecord;
     PatientRecordList patientRecordList;
     PersonList prsnList;
     HospitalList hspList;
+    DoctorList doctorList;
+    LoginClass loginList;
+    CommunityList commList;
 
-    public SystemLoginPanel(JSplitPane splitPane, PatientRecord patientRecord, PatientRecordList patientRecordList, PersonList prsnList, HospitalList hspList) {
+    public SystemLoginPanel(JSplitPane splitPane, PatientRecord patientRecord, PatientRecordList patientRecordList, PersonList prsnList, HospitalList hspList, DoctorList doctorList, LoginClass loginList, CommunityList commList) {
         initComponents();
         this.splitPane = splitPane;
         this.patientRecord = patientRecord;
         this.patientRecordList = patientRecordList;
         this.prsnList = prsnList;
         this.hspList = hspList;
+        this.doctorList = doctorList;
+        this.loginList = loginList;
+        this.commList = commList;
+        
         lblWarning.setVisible(false);
         txtPassword.setText("");
     }
@@ -141,12 +154,16 @@ public class SystemLoginPanel extends javax.swing.JPanel {
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
         if (userName.equals("systemadmin") && password.equals("system123")) {
-            SystemAdminPanel systemAdminPanel = new SystemAdminPanel(patientRecord, patientRecordList, prsnList, hspList);
+            SystemAdminPanel systemAdminPanel = new SystemAdminPanel(patientRecord, patientRecordList, prsnList, hspList, doctorList, loginList, commList);
             splitPane.setBottomComponent(systemAdminPanel);
+        } else if (userName.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(this, "All Fields Are Mandatory!");
         } else {
             txtUserName.setText("");
             txtPassword.setText("");
             lblWarning.setVisible(true);
+            btnLogin.setBackground(new Color(255, 153, 153));
+            btnLogin.setForeground(Color.red);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class PatientRecordList  {
 
     ArrayList<PatientRecord> patientRecordList;
-    PersonList personList;
 
     public ArrayList<PatientRecord> getPatientRecordList() {
         return patientRecordList;
@@ -32,64 +31,9 @@ public class PatientRecordList  {
         patientRecordList.add(newPatient);
         return newPatient;
     }
-    
-    public boolean checkPatientRecordExist(long patientId, String patientName) {
-        boolean isExist = false;
-        for (PatientRecord patRec : patientRecordList) {
-            isExist = ((patRec.getPatientId() == patientId) && (patRec.getPatientName().equals(patientName)));
-            break;
-        }
-        return isExist;
-    }
-
-    public PatientRecord searchPatientRecordView(long patientId, String patientName) {
-        PatientRecord result = new PatientRecord();
-        for (PatientRecord patRec : patientRecordList) {
-            result = ((patRec.getPatientId() == patientId) && (patRec.getPatientName().equals(patientName))) ? patRec : null;
-        }
-        return result;
-    }
 
     public int checkSizePatientRecord() {
         return patientRecordList.size();
-    }
-
-    public PatientRecord createNewPatientRecord(long patientID, String patientName, Encounter encounter) {
-        PatientRecord newPatient = new PatientRecord();
-        newPatient.setPatientId(patientID);
-        newPatient.setPatientName(patientName);
-//        newPatient.addEncounterToEncounterList(encounter);
-        patientRecordList.add(newPatient);
-        return newPatient;
-    }
-    
-    public boolean checkPatientRecordExistInPersonList(long patientID, String patientName, PersonList personList, PatientRecordList patientList, Encounter encounter) {
-        boolean result = false;
-        
-        for(PatientRecord patient: patientList.getPatientRecordList()) {
-            if((patient.getPatientId() == patientID) && (patient.getPatientName().equals(patientName))) {
-                result = true;
-                break;
-            } else {
-                patientList.createNewPatientRecord(patientID, patientName, encounter);
-                result = false;
-            }
-//            patient.addEncounterToEncounterList(encounter);
-        }
-        return result;
-    }
-    
-    public boolean addEncounterToExistingPatient(long patientID, String patientName, Encounter encounter, PatientRecordList patientRecordHis) {
-        boolean result =false;
-        
-        for(PatientRecord patientRec: patientRecordHis.getPatientRecordList()) {
-            if((patientRec.getPatientId() == patientID) && (patientRec.getPatientName().equals(patientName))) {
-//                patientRec.addEncounterToEncounterList(encounter);
-                result = true;
-                break;
-            } 
-        }
-        return result;
     }
     
     public boolean searchPersonByPatientID(long patientID) {
@@ -131,6 +75,5 @@ public class PatientRecordList  {
         }
         return searchResult;
     }
-    
 
 }

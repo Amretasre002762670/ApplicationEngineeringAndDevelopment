@@ -506,6 +506,8 @@ public class AddPatientEncounter extends javax.swing.JPanel {
 
                 txtSearchField.setText("");
 
+            } else if(txtSearchField.equals("")) {
+                JOptionPane.showMessageDialog(this, "This field cannot be empty");
             } else {
                 JOptionPane.showMessageDialog(this, "No patient records found. Create Patient Records First");
                 txtSearchField.setText("");
@@ -519,6 +521,8 @@ public class AddPatientEncounter extends javax.swing.JPanel {
 
                 txtSearchField.setText("");
 
+            } else if(txtSearchField.equals("")) {
+                JOptionPane.showMessageDialog(this, "This field cannot be empty");
             } else {
                 JOptionPane.showMessageDialog(this, "No patient records found. Create Patient Record First");
                 txtSearchField.setText("");

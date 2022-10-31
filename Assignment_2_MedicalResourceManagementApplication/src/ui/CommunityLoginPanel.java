@@ -4,8 +4,14 @@
  */
 package ui;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
+import model.CommunityList;
 import model.HospitalList;
+import model.Login;
+import model.LoginClass;
+import model.PersonList;
 
 /**
  *
@@ -18,12 +24,21 @@ public class CommunityLoginPanel extends javax.swing.JPanel {
      */
     JSplitPane splitPane;
     HospitalList hspList;
-
-    public CommunityLoginPanel(JSplitPane splitPane, HospitalList hspList) {
+    PersonList prsnList;
+    LoginClass loginList;
+    CommunityList commList;
+    
+    public CommunityLoginPanel(JSplitPane splitPane, HospitalList hspList, PersonList prsnList, LoginClass loginList, CommunityList commList) {
         initComponents();
         this.splitPane = splitPane;
         this.hspList = hspList;
+        this.prsnList = prsnList;
+        
         lblWarning.setVisible(false);
+        
+        this.loginList = loginList;
+        this.commList = commList;
+        
         txtPassword.setText("");
     }
 
@@ -131,14 +146,40 @@ public class CommunityLoginPanel extends javax.swing.JPanel {
         // User Login- username: personadmin; password: person123
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
-        if (userName.equals("communityadmin") && password.equals("community123")) {
-            CommuityPanel commPanel = new CommuityPanel(hspList);
+        
+        Login user = new Login();
+        user.setUserName(userName);
+        user.setPassword(password);
+        user.setUserType("Community");
+
+        Login checkUser = loginList.searchUserLogin(user);
+
+        if (checkUser != null) {
+            CommuityPanel commPanel = new CommuityPanel(hspList, prsnList);
             splitPane.setRightComponent(commPanel);
+        } else if (userName.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(this, "All Fields Are Mandatory!");
         } else {
             txtUserName.setText("");
             txtPassword.setText("");
             lblWarning.setVisible(true);
-        }
+            btnLogin.setBackground(new Color(255, 153, 153));
+            btnLogin.setForeground(Color.red);
+        } 
+        
+//        if (userName.equals("communityadmin") && password.equals("community123")) {
+//            CommuityPanel commPanel = new CommuityPanel(hspList, prsnList);
+//            splitPane.setRightComponent(commPanel);
+//        } else if (userName.equals("") || password.equals("")) {
+//            JOptionPane.showMessageDialog(this, "All Fields Are Mandatory!");
+//        } 
+//        else {
+//            txtUserName.setText("");
+//            txtPassword.setText("");
+//            lblWarning.setVisible(true);
+//            btnLogin.setBackground(new Color(255, 153, 153));
+//            btnLogin.setForeground(Color.red);
+//        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
 
