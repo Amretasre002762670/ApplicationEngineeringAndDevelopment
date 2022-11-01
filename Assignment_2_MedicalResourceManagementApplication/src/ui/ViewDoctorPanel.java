@@ -122,6 +122,8 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Doctor Panel!");
 
+        tblViewDoctors.setBackground(new java.awt.Color(255, 0, 204));
+        tblViewDoctors.setForeground(new java.awt.Color(0, 255, 204));
         tblViewDoctors.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -360,9 +362,9 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rdBtnDepartment)
-                        .addGap(11, 11, 11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rdBtnHospName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGap(15, 15, 15))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,7 +429,7 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
                 populateTableWithSearch(searchResult);
                 
             } else if(btnGrpDoctorType.getSelection().getActionCommand().equals("Hospital Community")) {
-                searchResult = doctorList.searchDocHospName(searchText);
+                searchResult = doctorList.searchDocComm(searchText);
                 populateTableWithSearch(searchResult);
                 
             } else {
