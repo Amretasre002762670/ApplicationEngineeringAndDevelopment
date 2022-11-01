@@ -64,5 +64,10 @@ public class Doctor {
     public void setDoctorNum(long doctorNum) {
         this.doctorNum = doctorNum;
     }
+    
+    @Override    
+    public String toString() { 
+        return doctorName; 
+    }
 
 }

@@ -179,7 +179,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
         // TODO add your handling code here:
-        UserLoginPanel userLoginPanel = new UserLoginPanel(splitPane, hspList, loginList);
+        UserLoginPanel userLoginPanel = new UserLoginPanel(splitPane, hspList, loginList, doctorList);
 //        SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hspList, "User Login");
         splitPane.setRightComponent(userLoginPanel);
     }//GEN-LAST:event_btnUserLoginActionPerformed

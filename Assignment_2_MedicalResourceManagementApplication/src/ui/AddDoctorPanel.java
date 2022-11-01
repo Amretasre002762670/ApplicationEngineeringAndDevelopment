@@ -340,7 +340,7 @@ public class AddDoctorPanel extends javax.swing.JPanel {
 
     private void txtDocPhoneNumFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDocPhoneNumFocusLost
         // TODO add your handling code here:
-        doctorPhoneNumber = checkDoctorID(txtDoctorID.getText());
+        doctorPhoneNumber = checkDoctorPhoneNumber(txtDocPhoneNum.getText());
         if (doctorPhoneNumber == 0 && !isValidPhoneNumber) {
             lblWarnDocNumber.setVisible(true);
             txtDocPhoneNum.setText("");
@@ -365,7 +365,7 @@ public class AddDoctorPanel extends javax.swing.JPanel {
 
             newDoctor.setDoctorID(doctorID);
             newDoctor.setDoctorName(doctorName);
-            newDoctor.setDoctorDept(doctorName);
+            newDoctor.setDoctorDept(doctorDepartment);
             newDoctor.setDoctorHospName(doctorHospName);
             newDoctor.setDoctorHospComm(doctorHospComm);
             newDoctor.setDoctorNum(doctorPhoneNumber);

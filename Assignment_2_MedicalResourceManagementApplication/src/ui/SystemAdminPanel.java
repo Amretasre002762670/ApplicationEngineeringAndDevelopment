@@ -320,7 +320,7 @@ public class SystemAdminPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ViewDoctorPanel viewDoctorsPanel = new ViewDoctorPanel(doctorList);
+        ViewDoctorPanel viewDoctorsPanel = new ViewDoctorPanel(doctorList, hospitalList, "System Admin");
         splitPane.setBottomComponent(viewDoctorsPanel);
     }//GEN-LAST:event_jButton1ActionPerformed
 

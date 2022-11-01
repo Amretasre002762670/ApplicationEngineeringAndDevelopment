@@ -706,6 +706,7 @@ public class AddPatientEncounter extends javax.swing.JPanel {
             txtPatientName.setText("");
             txtSysPressure.setText("");
             txtTemperature.setText("");
+            txtNewAppoinment.setText("");
 
         }
     }//GEN-LAST:event_btnAddRecordActionPerformed

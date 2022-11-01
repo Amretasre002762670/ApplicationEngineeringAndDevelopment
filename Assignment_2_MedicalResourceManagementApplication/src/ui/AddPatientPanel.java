@@ -70,6 +70,7 @@ public class AddPatientPanel extends javax.swing.JPanel {
         lblWarningHeartBeat.setVisible(false);
         lblWarningTemperature.setVisible(false);
         lblWarningSysPressure.setVisible(false);
+        lblWarningNxtAppt.setVisible(false);
     }
 
     /**
@@ -722,6 +723,7 @@ public class AddPatientPanel extends javax.swing.JPanel {
                 newEncounter.setDiastolicPressure(patientDiaPressure);
                 newEncounter.setSystolicPressure(patientSysPressure);
                 newEncounter.setTemperature(patientTemperature);
+                newEncounter.setNextAppointment(patientNxtAppointment);
 
                 lblWarningCity.setVisible(false);
                 lblWarningComm.setVisible(false);
@@ -735,6 +737,7 @@ public class AddPatientPanel extends javax.swing.JPanel {
                 lblWarningHeartBeat.setVisible(false);
                 lblWarningTemperature.setVisible(false);
                 lblWarningSysPressure.setVisible(false);
+                lblWarningNxtAppt.setVisible(false);
 
                 JOptionPane.showMessageDialog(this, "New Patient Records Added");
 
@@ -750,6 +753,7 @@ public class AddPatientPanel extends javax.swing.JPanel {
                 txtHeartBeat.setText("");
                 txtSysPressure.setText("");
                 txtTemperature.setText("");
+                txtNewAppoinment.setText("");
                 
             }
         }

@@ -176,6 +176,9 @@ public class ViewAdminDetails extends javax.swing.JPanel {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtUpdateUserNameFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUpdateUserNameFocusLost(evt);
+            }
         });
 
         txtUpdatePassword.setText("jPasswordField1");
@@ -402,6 +405,11 @@ public class ViewAdminDetails extends javax.swing.JPanel {
         
         populateTable();
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtUpdateUserNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUpdateUserNameFocusLost
+        // TODO add your handling code here:
+        lblWarningUsername.setVisible(false);
+    }//GEN-LAST:event_txtUpdateUserNameFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

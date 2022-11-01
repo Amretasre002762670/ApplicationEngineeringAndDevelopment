@@ -7,6 +7,7 @@ package ui;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
+import model.DoctorList;
 import model.HospitalList;
 import model.Login;
 import model.LoginClass;
@@ -23,14 +24,16 @@ public class UserLoginPanel extends javax.swing.JPanel {
     JSplitPane splitPane;
     HospitalList hspList;
     LoginClass loginList;
-            
-    public UserLoginPanel(JSplitPane splitPane, HospitalList hspList, LoginClass loginList) {
+    DoctorList doctorList;
+
+    public UserLoginPanel(JSplitPane splitPane, HospitalList hspList, LoginClass loginList, DoctorList doctorList) {
         initComponents();
-        
+
         this.splitPane = splitPane;
         this.hspList = hspList;
         this.loginList = loginList;
-        
+        this.doctorList = doctorList;
+
         lblWarning.setVisible(false);
         txtPassword.setText("");
     }
@@ -145,11 +148,11 @@ public class UserLoginPanel extends javax.swing.JPanel {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        
+
         // User Login- username: personadmin; password: person123
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
-        
+
         Login user = new Login();
         user.setUserName(userName);
         user.setPassword(password);
@@ -158,8 +161,8 @@ public class UserLoginPanel extends javax.swing.JPanel {
         Login checkUser = loginList.searchUserLogin(user);
 
         if (checkUser != null) {
-            SearchHospitalPanel searchHospitals = new SearchHospitalPanel(hspList, "User Login");
-            splitPane.setRightComponent(searchHospitals);
+            ViewDoctorPanel viewDoctorsPanel = new ViewDoctorPanel(doctorList, hspList, "User Login");
+            splitPane.setBottomComponent(viewDoctorsPanel);
         } else if (userName.equals("") || password.equals("")) {
             JOptionPane.showMessageDialog(this, "All Fields Are Mandatory!");
         } else {
@@ -168,13 +171,13 @@ public class UserLoginPanel extends javax.swing.JPanel {
             lblWarning.setVisible(true);
             btnLogin.setBackground(new Color(255, 153, 153));
             btnLogin.setForeground(Color.red);
-        } 
-        
+        }
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseReleased
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnLoginMouseReleased
 
 
